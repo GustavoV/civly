@@ -3,7 +3,7 @@ Civly::Application.routes.draw do
   root :to => 'pages#home'
   resources :users
   resources :authentications, only:[:new, :id, :email, :show, :create, :delete]
-  resources :groups
+  # resources :groups
 
 
   get "/logout", to: "authentications#destroy", as: "logout"
