@@ -9,6 +9,16 @@
   <li><%= link_to 'Mission', page_path('mission') %></li>
 </ul>
 
+<ul class="nav pull-right" id="user_btns">
+       <li>
+          <%= link_to "Log In", "authentications/new", :class => "btn-3d green" %>
+          <% if current_user %>
+          <%= link_to current_user.email %>
+          <%= link_to "Log Out", "/logout", :class => "btn-3d blue" %>
+          <% end %>
+      </li>
+</ul>
+
 
 
 
