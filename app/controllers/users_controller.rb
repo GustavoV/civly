@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 	def show
+		puts params
+		puts "*" * 100
 		@user = User.find(params[:id])
+
 	end
 	
 	def new
@@ -9,8 +12,9 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.create(params[:user].permit(:first_name, :last_name, :email, :password, :password_confirmation))
-		redirect_to root_url
+		redirect_to user_path(@user)
 	end
 	
+
 
 end

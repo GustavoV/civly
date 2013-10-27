@@ -1,0 +1,4 @@
+<% @posts.each do |p| %>
+	<% user = User.find(p.user_id) %>
+	<%= link_to p.post_title, user_post_path(user, p.id) %>
+<% end %>

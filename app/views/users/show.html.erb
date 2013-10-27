@@ -1,2 +1,10 @@
 <%= @user.email %>
 <%= @user._id %>
+
+<%= link_to "Post", new_user_post_path(@user), :class => "btn-3d green" %>
+
+<% @user.posts.each do |post| %>
+	<%= post.post_title %>
+	<%= post.description %>
+<% end %>
+

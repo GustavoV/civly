@@ -1,0 +1,14 @@
+<%= form_for([@user, @user.posts.build]) do |p| %>
+
+<p>
+	<%= p.text_field :post_title, :placeholder => "What's your post title?", class: "sign_up_text" %>
+</p>
+
+<p>
+	<%= p.text_field :description, :placeholder => 'Describe your post', class: "sign_up_text" %>
+</p>
+
+
+<%= p.submit 'Submit Post', :class => "btn-3d red" %>
+
+<% end %>

@@ -1,7 +1,9 @@
 Civly::Application.routes.draw do
 
   root :to => 'pages#home'
-  resources :users
+  resources :users do
+    resources :posts
+  end
   resources :authentications, only:[:new, :id, :email, :show, :create, :delete]
   # resources :groups
 
@@ -11,6 +13,8 @@ Civly::Application.routes.draw do
   get 'users/new' => 'users#new'
   post 'users' => 'users#create'
 
+  get 'all_posts' => 'posts#show_all'
+  get 'change_status' => 'posts#change_status'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
