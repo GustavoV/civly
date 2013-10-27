@@ -2,22 +2,12 @@
   <li><a href="/">
       <img alt="Civly" src="http://cloud-media.com/wp-content/uploads/2013/10/civly-beta-navbar-logo-2013-2.png">
     </a></li>
+  <li><%= link_to "Hero Wall", "/all_posts" %></li>
   <li><%= link_to 'Heroes', page_path('heroes') %></li>
   <li><%= link_to 'Activism', page_path('activism') %></li>
   <li><%= link_to 'Badges', page_path('badges') %></li>
   <li><%= link_to 'Causes', page_path('causes') %></li>
   <li><%= link_to 'Mission', page_path('mission') %></li>
-  <li><%= link_to "New Post", new_user_post_path(@user), :class => "btn-3d green" %></li>
-</ul>
-
-<ul class="nav pull-right" id="user_btns">
-       <li>
-          <%= link_to "Log In", "authentications/new", :class => "btn-3d green" %>
-          <% if current_user %>
-          <%= link_to current_user.email %>
-          <%= link_to "Log Out", "/logout", :class => "btn-3d blue" %>
-          <% end %>
-      </li>
 </ul>
 
 
