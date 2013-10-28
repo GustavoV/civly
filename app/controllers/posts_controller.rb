@@ -31,11 +31,13 @@ class PostsController < ApplicationController
 		puts params
 
 		@post = Post.find(params[:id])
-		@post.update_attributes( :status => 'Hero_In_Action')
+		@post.update_attributes( :status => 'Hero In Action!')
 
 		redirect_to :back
 
 	end
+
+
 
 
 
