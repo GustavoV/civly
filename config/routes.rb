@@ -12,6 +12,7 @@ Civly::Application.routes.draw do
 
   get 'users/new' => 'users#new'
   post 'users' => 'users#create'
+  # get 'users/:_id' => 'users#show', :as => @user
 
   get 'all_posts' => 'posts#show_all'
   get 'change_status' => 'posts#change_status'

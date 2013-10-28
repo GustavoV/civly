@@ -22,8 +22,8 @@
           </h2>
           <p>
             <% if current_user %>
-              <%= link_to current_user.email %>
-            
+              <%= link_to 'My Profile', current_user %>
+
               <%= link_to "Log Out", "/logout", :class => "btn-3d blue" %>
 
             <% end %>
