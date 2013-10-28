@@ -15,7 +15,7 @@ class User
   field :hashed_password, type: String
 
   #this is for posts
-  has_many :posts
+  has_many :posts, :order => "created_at DESC"
 
 
 

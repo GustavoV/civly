@@ -1,10 +1,17 @@
-<%= @user.email %>
-<%= @user._id %>
-
 <%= link_to "Post", new_user_post_path(@user), :class => "btn-3d green" %>
+<br />
+<%= @user.email %>
+<br />
+<%= @user._id %>
+<br />
 
-<% @user.posts.each do |post| %>
+<% @user.posts.reverse_each do |post| %>
+
+	<br />
 	<%= post.post_title %>
+	<br />
 	<%= post.description %>
+	<br />
+
 <% end %>
 

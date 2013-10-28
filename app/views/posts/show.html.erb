@@ -1,5 +1,7 @@
-<%= @post.post_title %>
-
+<%= @post.post_title %> 
 <%= link_to 'Act', change_status_path( :id => @post.id) %>
+<br />
+<b>Civly Status: <%= @post.status %></b>
+<br />
+<%= @post.description %>
 
-<%= @post.status %>
