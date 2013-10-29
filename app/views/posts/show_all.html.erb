@@ -4,3 +4,93 @@
 	<%= link_to p.post_title, user_post_path(user, p.id) %> <%= p.points %>
 	<br />
 <% end %>
+
+<br />
+<br />
+
+<br />
+
+
+
+<!--     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> -->
+    <style type="text/css">
+      #map-canvas { height: 500px; width: 500px; margin: 0 auto; }
+    </style>
+   <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoeQzNdisyfSFs_C8DYMR6wmPpR55GLSk&sensor=true">
+    </script>
+    <script type="text/javascript">
+
+    	var myLatLng = new google.maps.LatLng(<%= @posts[0].lat.to_s %>, <%= @posts[0].lon.to_s %>);
+
+
+      function initialize() {
+
+      	var image = 'http://download.xbox.com/content/images/00001000-6442-f223-c076-7c2157520802/0/thumblg.png';
+        var mapOptions = {
+          center: new google.maps.LatLng(34.013361,-118.49562),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+
+
+		// To add the marker to the map, use the 'map' property
+		  var marker = new google.maps.Marker({
+		    position: myLatLng,
+		    map: map,
+		    icon: image,
+		    draggable:true,
+		    animation: google.maps.Animation.DROP
+		});
+
+		  // To add the circle around the marker
+		  var circleOptions = {
+		      strokeColor: '#0000ff  ',
+		      strokeOpacity: 0.8,
+		      strokeWeight: 2,
+		      fillColor: '#0000ff  ',
+		      fillOpacity: 0.35,
+		      map: map,
+		      center: myLatLng,
+		      radius: 500
+		    };
+
+		// Try W3C Geolocation (Preferred)
+		  if(navigator.geolocation) {
+		    browserSupportFlag = true;
+		    navigator.geolocation.getCurrentPosition(function(position) {
+		      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+		      map.setCenter(initialLocation);
+		    }, function() {
+		      handleNoGeolocation(browserSupportFlag);
+		    });
+		  }
+		  // Browser doesn't support Geolocation
+		  else {
+		    browserSupportFlag = false;
+		    handleNoGeolocation(browserSupportFlag);
+		  }
+
+		  function handleNoGeolocation(errorFlag) {
+		    if (errorFlag == true) {
+		      alert("Geolocation service failed.");
+		      initialLocation = newyork;
+		    } else {
+		      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+		      initialLocation = siberia;
+		    }
+		    map.setCenter(initialLocation);
+		  }
+
+
+   }
+
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+   
+    </script>
+
+
+    <div id="map-canvas"/>

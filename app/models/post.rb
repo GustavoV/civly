@@ -11,6 +11,8 @@ field :description, type: String
 field :status, type: String
 field :points, type: String
 
+field :lat, type: Float
+field :lon, type: Float
 
 
 end
