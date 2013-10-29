@@ -1,6 +1,6 @@
 <!--     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> -->
     <style type="text/css">
-      #map-canvas { height: 500px; width: 500px; margin: 0 auto; }
+      #map-canvas { height: 400px; width: 100%; margin: 0 auto; }
     </style>
    <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoeQzNdisyfSFs_C8DYMR6wmPpR55GLSk&sensor=true">
@@ -12,7 +12,7 @@
 
       function initialize() {
 
-      	var image = 'http://download.xbox.com/content/images/00001000-6442-f223-c076-7c2157520802/0/thumblg.png';
+      	var image = 'http://cloud-media.com/wp-content/uploads/2013/10/477-1.gif';
         var mapOptions = {
           center: new google.maps.LatLng(34.013361,-118.49562),
           zoom: 8,
@@ -20,6 +20,8 @@
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
+
+
 
 
 		// To add the marker to the map, use the 'map' property
@@ -80,9 +82,10 @@
 
 
 
-<table>
-<tr>
-	<td>
+<!-- Google Maps Div -->
+<div id="map-canvas"/>
+
+
 <% @posts.reverse_each do |p| %>
 	<% user = User.find(p.user_id) %>
 	<br />
@@ -90,11 +93,6 @@
 	<br />
 <% end %>
 
-</td>
 
-<td>
 
-    <div id="map-canvas"/>
-</td>
-</tr>
-</table>
+  

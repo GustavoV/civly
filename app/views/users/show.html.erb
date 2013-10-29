@@ -8,17 +8,21 @@
 <br />
 <h5><%= @user.email %></h5>
 <br />
-<!-- <h5><%= @user._id %></h5> -->
+
 <br />
 
+
+
 <h2>My Good Deeds</h2>
+
+Total Points: <%= @user.user_points %>
 
 <% @user.posts.reverse_each do |post| %>
 
 	<br />
 	<%= post.post_title %>
 	<br />
-	<h3><%= post.points %></h3>
+	<h3><%= post.points %> Points</h3>
 	<br />
 	<%= post.description %>
 	<br />

@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 		puts params
 		puts "*" * 100
 		@user = User.find(params[:id])
-
 	end
 	
 	def new
@@ -15,7 +14,14 @@ class UsersController < ApplicationController
 		redirect_to root_url
 	end
 	
-	
+	# def addPoints
+	# 	@user = User.find(params[:id])
+	# 	userPoints = @user.user_points + post.points 
+	# 	user.save(point: userPoints)
+	# end
+
+
+
 
 
 end

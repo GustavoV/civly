@@ -4,6 +4,11 @@
 <b>Civly Status: <h2><%= @post.status %></h2></b>
 <br />
 
+<% if @post.status == "Hero In Action!" %>
+ 	<%= link_to(image_tag("http://cloud-media.com/wp-content/uploads/2013/10/477-1.gif"), current_user, ) %>
+ <% end %>
+
+
 <h3><%= @post.points %></h3>
 <br />
 <%= @post.description %>

@@ -10,6 +10,7 @@ field :post_title, type: String
 field :description, type: String
 field :status, type: String
 field :points, type: String
+field :total_points, type: Integer
 
 field :lat, type: Float
 field :lon, type: Float

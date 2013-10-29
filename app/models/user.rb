@@ -13,6 +13,7 @@ class User
   field :email, type: String
   field :salt, type: String
   field :hashed_password, type: String
+  field :user_points, type: Integer
 
   #this is for posts
   has_many :posts, :order => "created_at DESC"

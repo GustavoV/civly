@@ -16,7 +16,12 @@ class PostsController < ApplicationController
 		puts "* " * 100
 		puts params
 	 	@user = User.find(params[:user_id])
-	 	@user.posts.create(params[:post].permit(:post_title, :description, :points, :lat, :lon))
+	 	p = @user.posts.create(params[:post].permit(:post_title, :description, :points, :lat, :lon))
+
+		@user.user_points += p.points.to_i
+
+		@user.save
+
 		redirect_to user_path(@user)
 	end
 
@@ -36,6 +41,7 @@ class PostsController < ApplicationController
 		redirect_to :back
 
 	end
+
 
 
 
