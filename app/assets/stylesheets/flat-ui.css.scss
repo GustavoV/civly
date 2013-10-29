@@ -3,6 +3,38 @@ body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
 
+
+
+.profile_link {
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 64px;
+    height: 64px;
+    background-color: #14A085;
+}
+
+.profile_link:hover {
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 64px;
+    height: 64px;
+    background-color: no;
+}
+
+.login_btn {
+  border-radius: 5px;
+  color: #526476;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 10px;
+  text-shadow: none;
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+
+
 .sign_up_submit_btn {
   border-radius: 5px;
   color: #526476;

@@ -1,9 +1,17 @@
-<%= link_to "Post", new_user_post_path(@user), :class => "btn-3d green" %>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+
+<% if current_user %>
+             <%= link_to(image_tag("http://cloud-media.com/wp-content/uploads/2013/10/Civly-Hero-Captain-America-Gravatar.png"), current_user, ) %>
+<% end %>
+
+<%= link_to "Post", new_user_post_path(@user), :class => "btn-3d red" %>
 <br />
-<%= @user.email %>
+<h5><%= @user.email %></h5>
 <br />
-<%= @user._id %>
+<!-- <h5><%= @user._id %></h5> -->
 <br />
+
+<h2>My Good Deeds</h2>
 
 <% @user.posts.reverse_each do |post| %>
 

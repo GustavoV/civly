@@ -17,7 +17,8 @@ class User
   #this is for posts
   has_many :posts, :order => "created_at DESC"
 
-
+  #this is for user total points
+  # has_many :points
 
   # This will tell us what regions to show on the map
   # has_and_belongs_to_many :ugroups, class_name:"Group", inverse_of: :gusers
