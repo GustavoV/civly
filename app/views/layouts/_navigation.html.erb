@@ -2,7 +2,7 @@
   <li><a href="/">
       <img alt="Civly" src="http://cloud-media.com/wp-content/uploads/2013/10/civly-beta-navbar-logo-2013-2.png">
     </a></li>
-  <li><%= link_to "Causes", "/all_posts" %></li>
+  <li><%= link_to "Causes", '/all_posts', 'data-no-turbolink' => true %></li>
   <li><%= link_to 'Heroes', page_path('heroes') %></li>
   <li><%= link_to 'Badges', page_path('badges') %></li>
   <li><%= link_to 'Groups', page_path('activism') %></li>
@@ -15,7 +15,7 @@
              <%= link_to(image_tag("http://icons.iconarchive.com/icons/deleket/superhero-avatar/64/Avengers-Captain-America-icon.png"), current_user, :class => "profile_link") %>
            <% end %>
            </li>
-           
+
           <li>
             <% if current_user == nil %>
                       <li style="font-size: 10px; margin-top: 20px; margin-right: 10px;">

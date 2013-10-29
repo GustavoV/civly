@@ -5,17 +5,10 @@
 <% end %>
 
 <%= link_to "Post", new_user_post_path(@user), :class => "btn-3d red" %>
-<br />
-<h5><%= @user.email %></h5>
-<br />
-
+<h2>Total Points: <%= @user.user_points %></h2>
 <br />
 
-
-
-<h2>My Good Deeds</h2>
-
-Total Points: <%= @user.user_points %>
+<h3>My Good Deeds</h3>
 
 <% @user.posts.reverse_each do |post| %>
 

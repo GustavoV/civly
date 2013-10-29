@@ -1,6 +1,6 @@
 <!--     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> -->
     <style type="text/css">
-      #map-canvas { height: 400px; width: 100%; margin: 0 auto; }
+      #map-canvas { height: 400px; width: 100%; }
     </style>
    <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoeQzNdisyfSFs_C8DYMR6wmPpR55GLSk&sensor=true">
@@ -80,11 +80,8 @@
    
     </script>
 
-
-
-<!-- Google Maps Div -->
-<div id="map-canvas"/>
-
+<br />
+<br />
 
 <% @posts.reverse_each do |p| %>
 	<% user = User.find(p.user_id) %>
@@ -92,6 +89,35 @@
 	<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id) %> <br /> Points: <%= p.points %>
 	<br />
 <% end %>
+
+<br />
+<br />
+
+<!-- Google Maps Div -->
+<div id="map-canvas"/>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 
 
