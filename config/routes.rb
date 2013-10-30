@@ -1,5 +1,7 @@
 Civly::Application.routes.draw do
 
+  resources :prof_pics
+
   root :to => 'pages#home'
   resources :users do
     resources :posts

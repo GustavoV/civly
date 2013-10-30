@@ -110,12 +110,42 @@
 <br />
 <br />
 
-<% @posts.reverse_each do |p| %>
-	<% user = User.find(p.user_id) %>
-	<br />
-	<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id) %> <br /> Points: <%= p.points %>
-	<br />
-<% end %>
+
+<table>
+	<tr>
+		<td>
+		<h2 style="color: #14A085;">Recent</h2>
+		<% @posts.reverse_each do |p| %>
+			<% user = User.find(p.user_id) %>
+			<br />
+			<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id) %> <br /> Points: <div style="color: #14A085;"><%= p.points %></div>
+			<br />
+		<% end %>
+	</td>
+
+	<td>
+		<h2 style="color: #14A085;">Oldest</h2>
+		<% @posts.each do |p| %>
+			<% user = User.find(p.user_id) %>
+			<br />
+			<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id) %> <br /> Points: <div style="color: #14A085;"><%= p.points %></div>
+			<br />
+		<% end %>
+	</td>
+
+	<td><h2 style="color: #14A085;">Random</h2>
+		<% @posts.shuffle.each do |p| %>
+			<% user = User.find(p.user_id) %>
+			<br />
+			<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id) %> <br /> Points: <div style="color: #14A085;"><%= p.points %></div>
+			<br />
+		<% end %>
+	</td>
+</tr>
+</table>
+
+
+
 
 <br />
 <br />

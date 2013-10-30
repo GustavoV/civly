@@ -52,6 +52,8 @@ end
 
 gem 'mongoid', github: 'mongoid/mongoid'
 
+gem 'carrierwave'
+
 gem 'bcrypt-ruby'
 
 

@@ -1,11 +1,12 @@
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1><h2> Total Points: <%= @user.user_points %></h2>
 
 <% if current_user %>
              <%= link_to(image_tag("http://cloud-media.com/wp-content/uploads/2013/10/Civly-Hero-Captain-America-Gravatar.png"), current_user, ) %>
 <% end %>
 
+		<li><%= link_to "Change Profile Photo", prof_pics_path %></li>
+
 <%= link_to "Post", new_user_post_path(@user), :class => "btn-3d red" %>
-<h2>Total Points: <%= @user.user_points %></h2>
 <br />
 
 <h3>My Good Deeds</h3>
@@ -22,3 +23,8 @@
 
 <% end %>
 
+
+
+<div class="container">
+  <%= yield %>
+</div>

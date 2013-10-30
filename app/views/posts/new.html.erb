@@ -1,3 +1,4 @@
+<h2>Submit Your Cause</h2>
 <%= form_for([@user, @user.posts.build]) do |p| %>
 
 <p>
@@ -12,6 +13,6 @@
 	<%= p.text_field :points, :placeholder => 'Number of Civly Points?', class: "sign_up_text" %>
 </p>
 
-<%= p.submit 'Submit Post', :class => "btn-3d red" %>
+<%= p.submit 'Submit', :class => "btn-3d red" %>
 
 <% end %>

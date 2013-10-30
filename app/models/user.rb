@@ -21,6 +21,9 @@ class User
   #this is for user total points
   # has_many :points
 
+  #Profile Photo Uploader
+  # mount_uploader :prof_pics, ProfilePhotoUploader
+
   # This will tell us what regions to show on the map
   # has_and_belongs_to_many :ugroups, class_name:"Group", inverse_of: :gusers
 
