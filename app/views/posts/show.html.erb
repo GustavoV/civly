@@ -1,5 +1,12 @@
 <%= @post.post_title %> 
-<%= link_to 'Act', change_status_path( :id => @post.id), :class => "btn-3d green" %>
+
+<% if current_user._id != @post.user_id %>
+	<% if @post.status != "Hero In Action!" %>
+		<%= link_to 'Act', change_status_path( :id => @post.id), :class => "btn-3d green" %>
+	<% end %>
+<% end %>
+
+
 <br />
 <b>Civly Status: <h2><%= @post.status %></h2></b>
 <br />
@@ -12,4 +19,7 @@
 <h3><%= @post.points %></h3>
 <br />
 <%= @post.description %>
+
+
+	
 
