@@ -23,6 +23,26 @@
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
 
+        // Accessing arguments in UI events on click
+        google.maps.event.addListener(map, 'click', function(e) {
+		    placeMarker(e.latLng, map);
+		  });
+		
+
+		function placeMarker(position, map) {
+		  var marker = new google.maps.Marker({
+		    position: position,
+		    map: map,
+		    icon: civly_logo
+		  });
+		  map.panTo(position);
+		}
+
+		var civly_logo = 'http://cloud-media.com/wp-content/uploads/2013/10/Civly-Winged-Icon-Logo-Beta.png';
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+		// end of click events listener
+
 		var styles = [
 		  {
 		    stylers: [
@@ -96,7 +116,7 @@
 		    }
 		    map.setCenter(initialLocation);
 		  }
-
+// end Geolocation
 			
 
 
@@ -114,7 +134,7 @@
 <table>
 	<tr>
 		<td>
-		<h2 style="color: #14A085;">Recent</h2>
+		<h2 style="color: #14A085;">Newest</h2>
 		<% @posts.reverse_each do |p| %>
 			<% user = User.find(p.user_id) %>
 			<br />
