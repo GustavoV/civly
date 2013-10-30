@@ -17,11 +17,34 @@
 
         var mapOptions = {
           zoom: 9,
-          center: new google.maps.LatLng(34.013361,-118.49562),    
+          center: new google.maps.LatLng(34.023071,-118.495995),    
         };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
+
+
+        // Polyline between coordinates
+        var flightPlanCoordinates = [
+		    new google.maps.LatLng(33.99575,-118.476768),
+		    new google.maps.LatLng(34.092473,-118.332573),
+		    new google.maps.LatLng(34.049246,-118.243309),
+		    new google.maps.LatLng(33.97867,-118.268028),
+		    new google.maps.LatLng(33.779147,-118.181511),
+		    new google.maps.LatLng(33.97867,-118.460289)
+		  ];
+		  var flightPath = new google.maps.Polyline({
+		    path: flightPlanCoordinates,
+		    geodesic: true,
+		    strokeColor: '#FF0000',
+		    strokeOpacity: 1.0,
+		    strokeWeight: 2
+		  });
+
+		  flightPath.setMap(map);
+		  // END Polyline code
+
+
 
         // Accessing arguments in UI events on click
         google.maps.event.addListener(map, 'click', function(e) {

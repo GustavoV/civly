@@ -13,12 +13,11 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		puts "* " * 100
 		puts params
 	 	@user = User.find(params[:user_id])
 	 	p = @user.posts.create(params[:post].permit(:post_title, :description, :points, :lat, :lon))
 
-		@user.user_points += p.points.to_i
+		@user.user_points_posted += p.points.to_i
 
 		@user.save
 
@@ -31,12 +30,19 @@ class PostsController < ApplicationController
 	end
 
 	def change_status
-		puts 'hooter g' * 100
 
 		puts params
 
 		@post = Post.find(params[:id])
+		@user = current_user
 		@post.update_attributes( :status => 'Hero In Action!')
+
+
+		# p = @user.posts.create(params[:post].permit(:post_title, :description, :points, :lat, :lon))
+
+		@user.user_points_earned += @post.points.to_i
+
+		@user.save
 
 		redirect_to :back
 
