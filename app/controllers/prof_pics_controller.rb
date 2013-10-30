@@ -10,6 +10,7 @@ class ProfPicsController < ApplicationController
   # GET /prof_pics/1
   # GET /prof_pics/1.json
   def show
+    @prof_pics = ProfPic.last
   end
 
   # GET /prof_pics/new

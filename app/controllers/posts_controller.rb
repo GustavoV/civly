@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		puts params
+		
 	 	@user = User.find(params[:user_id])
 	 	p = @user.posts.create(params[:post].permit(:post_title, :description, :points, :lat, :lon))
 
@@ -31,14 +31,9 @@ class PostsController < ApplicationController
 
 	def change_status
 
-		puts params
-
 		@post = Post.find(params[:id])
 		@user = current_user
 		@post.update_attributes( :status => 'Hero In Action!')
-
-
-		# p = @user.posts.create(params[:post].permit(:post_title, :description, :points, :lat, :lon))
 
 		@user.user_points_earned += @post.points.to_i
 
@@ -48,6 +43,27 @@ class PostsController < ApplicationController
 
 	end
 
+
+	def edit
+		@user = User.find(params[:user_id])
+		@post = @user.posts.find(params[:id])
+	end
+
+	def update
+		@user = User.find(params[:user_id])
+		@post = @user.posts.find(params[:id])
+
+		if @post.update_attributes(params[:post].permit(:post_title, :description))
+			redirect_to action: 'show', id: @post
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		Post.find(params[:id]).destroy
+		user_path(@user)
+	end
 
 
 

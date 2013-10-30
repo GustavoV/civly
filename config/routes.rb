@@ -3,6 +3,7 @@ Civly::Application.routes.draw do
   resources :prof_pics
 
   root :to => 'pages#home'
+  post '/users/:user_id/posts/:id/edit' => 'posts#update'
   resources :users do
     resources :posts
   end
@@ -18,6 +19,7 @@ Civly::Application.routes.draw do
 
   get 'all_posts' => 'posts#show_all'
   get 'change_status' => 'posts#change_status'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
