@@ -1,7 +1,5 @@
 Civly::Application.routes.draw do
 
-  resources :prof_pics
-
   root :to => 'pages#home'
   post '/users/:user_id/posts/:id/edit' => 'posts#update'
   resources :users do
