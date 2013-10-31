@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
 	def new
+
 		@user = User.find(params[:user_id])
 		# @post = Post.new()
 	end
@@ -27,6 +28,8 @@ class PostsController < ApplicationController
 
 	def show_all
 		@posts = Post.all
+		puts "$" * 100
+		puts params 
 	end
 
 	def change_status

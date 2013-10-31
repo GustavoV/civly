@@ -15,7 +15,7 @@ Civly::Application.routes.draw do
   post 'users' => 'users#create'
 
 
-  get 'all_posts' => 'posts#show_all'
+  get 'all_posts(/:loc)' => 'posts#show_all'
   get 'change_status' => 'posts#change_status'
 
 
