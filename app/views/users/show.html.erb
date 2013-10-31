@@ -6,8 +6,6 @@
              <%= link_to(image_tag("http://cloud-media.com/wp-content/uploads/2013/10/Civly-Hero-Captain-America-Gravatar.png"), current_user, ) %>
 <% end %>
 
-		<li><%= link_to "Change Profile Photo", prof_pics_path %></li>
-
 <%= link_to "Post", new_user_post_path(@user), :class => "btn-3d red" %>
 
 <br />
@@ -27,8 +25,3 @@
 	<br />
 
 <% end %>
-
-
-<div class="container">
-  <%= yield %>
-</div>
