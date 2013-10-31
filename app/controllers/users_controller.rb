@@ -25,6 +25,8 @@ class UsersController < ApplicationController
 	# 	user.save(point: userPoints)
 	# end
 
+	
+
 
 
 

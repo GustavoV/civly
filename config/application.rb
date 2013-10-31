@@ -7,7 +7,7 @@ require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
 
-# require 'carrierwave/mongoid'
+
 # require 'mongoid/railtie'
 
 # Require the gems listed in Gemfile, including any gems
