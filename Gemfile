@@ -52,9 +52,9 @@ end
 
 gem 'mongoid', github: 'mongoid/mongoid'
 
-gem 'carrierwave'
-gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
-gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
+# gem 'carrierwave'
+# gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+# gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 
 gem 'bcrypt-ruby'
 
