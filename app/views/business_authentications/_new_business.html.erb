@@ -1,0 +1,26 @@
+<h2>Sign in</h2>
+<br />
+<%= form_for @business, {url:"/authentications", method:"post"} do |b| %>
+
+	<%=b.text_field :email, :placeholder => 'Email', :class => "sign_up_text" %><br />
+	
+	<%=b.password_field :password, :placeholder => 'Password', :class => "sign_up_text" %>
+
+	<br />
+	
+	<%= b.submit "Log In", :class => 'btn-3d green' %>
+
+
+<% end %>
+
+
+
+<br />
+
+<br />
+
+<br />
+
+
+<hr />
+If you don't already have an account, click here to <%= link_to 'Sign Up!', root_url, :class => 'btn-3d red' %>

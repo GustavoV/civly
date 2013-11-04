@@ -15,5 +15,7 @@ field :total_points, type: Integer
 field :lat, type: Float
 field :lon, type: Float
 
+field :hero_lat, type: Float
+field :hero_lon, type: Float
 
 end

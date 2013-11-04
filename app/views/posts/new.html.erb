@@ -13,6 +13,49 @@
 	<%= p.text_field :points, :placeholder => 'Number of Civly Points?', class: "sign_up_text" %>
 </p>
 
+<p>
+	<%= p.hidden_field :lat %>
+	<%= p.hidden_field :lon %> 
+
 <%= p.submit 'Submit', :class => "btn-3d red" %>
 
 <% end %>
+
+
+
+
+
+<script>
+
+var latitude;
+var longitude;
+
+
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+   	}
+  else{
+  	console.log("Geolocation is not supported by this browser.")
+  	}
+  }
+
+function showPosition(position)
+  {
+  	latitude = position.coords.latitude;
+  	longitude = position.coords.longitude;
+
+  	// set the hidden lat lon field in form
+  	$("#post_lat").val(latitude);
+  	$("#post_lon").val(longitude);
+
+
+  console.log("Latitude: " + latitude + 
+  " Longitude: " + longitude);
+  }
+
+  getLocation();
+</script>
+

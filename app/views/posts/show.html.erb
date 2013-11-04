@@ -1,7 +1,8 @@
 <%= @post.post_title %>
 <%= @post.description %> 
 
-<% if current_user._id != @post.user_id %>
+
+<% if current_user && current_user._id != @post.user_id %>
 	<% if @post.status != "Hero In Action!" %>
 		<%= link_to 'Act', change_status_path( :id => @post.id), :class => "btn-3d green" %>
 	<% end %>
@@ -21,8 +22,181 @@
 <br />
 
 
-<%# link_to 'Edit', edit_user_post_path(@post) %>
 
 
-	
+<%= link_to 'Edit', edit_user_post_path( :id => @post.id), :class => "btn-3d blue" %>
+<%= link_to 'Delete', user_post_path( :id => @post.id), :class => "btn-3d red" %>
+
+
+<br />
+<br />
+
+  Post Location: (<%= @post.lat %>, <%= @post.lon %>)
+<br />
+  Hero Location: (<%= @post.hero_lat %>, <%= @post.hero_lon %>)
+<script>
+
+var latitude;
+var longitude;
+
+
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+   	}
+  else{
+  	console.log("Geolocation is not supported by this browser.")
+  	}
+  }
+
+function showPosition(position)
+  {
+  	latitude = position.coords.latitude;
+  	longitude = position.coords.longitude;
+
+  	// set the hidden lat lon field in form
+  	$("#post_hero_lat").val(latitude);
+  	$("#post_hero_lon").val(longitude);
+
+
+  console.log("Latitude: " + latitude + 
+  " Longitude: " + longitude);
+  }
+
+  getLocation();
+</script>
+
+<!-- END Geolocation Code that grabs the location of each post and stores it in LAT/LON and also grabs the HERO_LAT/HERO_LON -->
+
+
+
+
+
+  <!-- Begin Visual Map Display of Current Location -->
+<style type="text/css">
+      #map-canvas { height: 600px; width: 100%; margin-left: -10px; }
+    </style>
+   <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoeQzNdisyfSFs_C8DYMR6wmPpR55GLSk&sensor=true">
+    </script>
+   <script type="text/javascript">
+
+   var map;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 6,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+
+
+      var styles = [
+      {
+        stylers: [
+          { hue: "#00ffe6" },
+          { saturation: -20 }
+        ]
+      },{
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [
+          { lightness: 100 },
+          { visibility: "simplified" }
+        ]
+      },{
+        featureType: "road",
+        elementType: "labels",
+        stylers: [
+          { visibility: "off" }
+        ]
+      }
+    ];
+
+    map.setOptions({styles: styles});
+
+
+
+
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+  
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+    var myLoc = {}
+    myLoc.lat = position.coords.latitude;
+    myLoc.lon = position.coords.longitude;
+    console.log(myLoc);
+
+  $.get( "/all_posts/" + JSON.stringify(myLoc), function( data ) {
+  console.log(data); // console.log is showing all of the myLoc data on the front-end???? 
+});
+
+      console.log(position.coords.latitude);
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'Location found using HTML5.'
+
+
+      });
+
+      map.setCenter(pos);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+
+
+
+function addLoc() {
+
+} 
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+
+} 
+
+} // END Initialize function
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+
+
+
+
+
+<br />
+<br />
+<br />
+
+<div id="map-canvas"/>
+
+
 

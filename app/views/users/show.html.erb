@@ -1,27 +1,33 @@
-<h1 style="color: #0E99DA; margin-top: -30px;"><%= @user.first_name %> <%= @user.last_name %></h1>
-<h2 style="color: #14A085; margin-top: -20px;"> Points Earned: <%= @user.user_points_earned %></h2>
-<h3> Points Posted: <%= @user.user_points_posted %></h3>
+<div style="float: left;">
+	<h1 style="color: #0E99DA; margin-top: -25px;"><%= @user.first_name %> <%= @user.last_name %></h1>
+	
+	<% if current_user %>
+	             <%= link_to(image_tag("http://cloud-media.com/wp-content/uploads/2013/10/Civly-Hero-Captain-America-Gravatar.png"), current_user, ) %>
+	<% end %>
 
-<% if current_user %>
-             <%= link_to(image_tag("http://cloud-media.com/wp-content/uploads/2013/10/Civly-Hero-Captain-America-Gravatar.png"), current_user, ) %>
-<% end %>
+	<%= link_to "Post", new_user_post_path(@user), :class => "btn-3d red" %>
+	<h2 style="color: #14A085; margin-top: -20px;"> Points Earned: <%= @user.user_points_earned %></h2>
+	<h3> Points Posted: <%= @user.user_points_posted %></h3>
 
-<%= link_to "Post", new_user_post_path(@user), :class => "btn-3d red" %>
+</div>
 
-<br />
-	<%= @user_heroes %>
-<br />
 
-<h3>My Good Deeds</h3>
-
-<% @user.posts.reverse_each do |post| %>
-
+<div style="float: right; margin-top: -100px; width: 350px;">
 	<br />
-	<%= post.post_title %>
-	<br />
-	<h3><%= post.points %> Points</h3>
-	<br />
-	<%= post.description %>
+		<%= @user_heroes %>
 	<br />
 
-<% end %>
+	<h3 style="color: #0E99DA;">My Good Deeds</h3>
+
+	<% @user.posts.reverse_each do |post| %>
+
+		<br />
+		<%= post.post_title %>
+		<br />
+		<h3><%= post.points %> Points</h3>
+		<br />
+		<%= post.description %>
+		<br />
+
+	<% end %>
+</div>

@@ -18,5 +18,9 @@ class PagesController < ApplicationController
 	def developers
 	end
 
+	def sponsors
+		@business = Business.new
+	end
+
 end
 

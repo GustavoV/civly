@@ -6,6 +6,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoeQzNdisyfSFs_C8DYMR6wmPpR55GLSk&sensor=true">
     </script>
    <script type="text/javascript">
+
 var map;
 
 function initialize() {
@@ -13,8 +14,6 @@ function initialize() {
     zoom: 6,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-
-
 
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -69,6 +68,8 @@ function initialize() {
         map: map,
         position: pos,
         content: 'Location found using HTML5.'
+
+
       });
 
       map.setCenter(pos);
@@ -106,150 +107,9 @@ function handleNoGeolocation(errorFlag) {
 } // END Initialize function
 
 
-
 google.maps.event.addDomListener(window, 'load', initialize);
 
-//     var myLatLng = new google.maps.LatLng(34.013361,-118.49562);
-
-//       function initialize(position) {
-
-
-//       	var image = 'http://cloud-media.com/wp-content/uploads/2013/10/477-1.gif';
-
-//         var mapOptions = {
-//           zoom: 9,
-//           center: new google.maps.LatLng(34.023071,-118.495995),    
-//         };
-
-//         var map = new google.maps.Map(document.getElementById("map-canvas"),
-//             mapOptions);
-
-
-//         // Polyline between coordinates
-//         var flightPlanCoordinates = [
-// 		    new google.maps.LatLng(33.99575,-118.476768),
-// 		    new google.maps.LatLng(34.092473,-118.332573),
-// 		    new google.maps.LatLng(34.049246,-118.243309),
-// 		    new google.maps.LatLng(33.97867,-118.268028),
-// 		    new google.maps.LatLng(33.779147,-118.181511),
-// 		    new google.maps.LatLng(33.97867,-118.460289)
-// 		  ];
-// 		  var flightPath = new google.maps.Polyline({
-// 		    path: flightPlanCoordinates,
-// 		    geodesic: true,
-// 		    strokeColor: '#FF0000',
-// 		    strokeOpacity: 1.0,
-// 		    strokeWeight: 2
-// 		  });
-
-// 		  flightPath.setMap(map);
-// 		  // END Polyline code
-
-
-
-//         // Accessing arguments in UI events on click
-//         google.maps.event.addListener(map, 'click', function(e) {
-// 		    placeMarker(e.latLng, map);
-// 		  });
-		
-
-// 		function placeMarker(position, map) {
-// 		  var marker = new google.maps.Marker({
-// 		    position: position,
-// 		    map: map,
-// 		    icon: civly_logo
-// 		  });
-// 		  map.panTo(position);
-// 		}
-
-// 		var civly_logo = 'http://cloud-media.com/wp-content/uploads/2013/10/Civly-Winged-Icon-Logo-Beta.png';
-
-// 		google.maps.event.addDomListener(window, 'load', initialize);
-// 		// end of click events listener
-
-// 		var styles = [
-// 		  {
-// 		    stylers: [
-// 		      { hue: "#00ffe6" },
-// 		      { saturation: -20 }
-// 		    ]
-// 		  },{
-// 		    featureType: "road",
-// 		    elementType: "geometry",
-// 		    stylers: [
-// 		      { lightness: 100 },
-// 		      { visibility: "simplified" }
-// 		    ]
-// 		  },{
-// 		    featureType: "road",
-// 		    elementType: "labels",
-// 		    stylers: [
-// 		      { visibility: "off" }
-// 		    ]
-// 		  }
-// 		];
-
-// 		map.setOptions({styles: styles});
-
-
-
-// 		// To add the marker to the map, use the 'map' property
-// 		  var marker = new google.maps.Marker({
-// 		    position: myLatLng,
-// 		    map: map,
-// 		    icon: image,
-// 		    draggable:true,
-// 		    animation: google.maps.Animation.DROP
-// 		});
-
-// 		  // To add the circle around the marker
-// 		  var circleOptions = {
-// 		      strokeColor: '#0000ff  ',
-// 		      strokeOpacity: 0.8,
-// 		      strokeWeight: 2,
-// 		      fillColor: '#0000ff  ',
-// 		      fillOpacity: 0.35,
-// 		      map: map,
-// 		      center: myLatLng,
-// 		      radius: 500
-// 		    };
-
-// 		// Try W3C Geolocation (Preferred)
-// 		  if(navigator.geolocation) {
-// 		    browserSupportFlag = true;
-// 		    navigator.geolocation.getCurrentPosition(function(position) {
-// 		      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-// 		      map.setCenter(initialLocation);
-// 		    }, function() {
-// 		      handleNoGeolocation(browserSupportFlag);
-// 		    });
-// 		  }
-// 		  // Browser doesn't support Geolocation
-// 		  else {
-// 		    browserSupportFlag = false;
-// 		    handleNoGeolocation(browserSupportFlag);
-// 		  }
-
-// 		  function handleNoGeolocation(errorFlag) {
-// 		    if (errorFlag == true) {
-// 		      alert("Geolocation service failed.");
-// 		      initialLocation = newyork;
-// 		    } else {
-// 		      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
-// 		      initialLocation = siberia;
-// 		    }
-// 		    map.setCenter(initialLocation);
-// 		  }
-// // end Geolocation
-			
-
-
-//    } // closing out the Maps initialize function
-
-
-//       google.maps.event.addDomListener(window, 'load', initialize);
-   
-//     </script>
+</script>
 
 <br />
 <br />
@@ -262,7 +122,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		<% @posts.reverse_each do |p| %>
 			<% user = User.find(p.user_id) %>
 			<br />
-			<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id) %> <br /> Points: <div style="color: #14A085;"><%= p.points %></div>
+			<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id), 'data-no-turbolink' => true %> <br /> Points: <div style="color: #14A085;"><%= p.points %></div>
 			<br />
 		<% end %>
 	</td>
@@ -272,7 +132,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		<% @posts.each do |p| %>
 			<% user = User.find(p.user_id) %>
 			<br />
-			<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id) %> <br /> Points: <div style="color: #14A085;"><%= p.points %></div>
+			<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id), 'data-no-turbolink' => true %> <br /> Points: <div style="color: #14A085;"><%= p.points %></div>
 			<br />
 		<% end %>
 	</td>
@@ -281,7 +141,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		<% @posts.shuffle.each do |p| %>
 			<% user = User.find(p.user_id) %>
 			<br />
-			<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id) %> <br /> Points: <div style="color: #14A085;"><%= p.points %></div>
+			<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id), 'data-no-turbolink' => true %> <br /> Points: <div style="color: #14A085;"><%= p.points %></div>
 			<br />
 		<% end %>
 	</td>
@@ -290,12 +150,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 
-
 <br />
 <br />
 
 <!-- Google Maps Div -->
 <div id="map-canvas"/>
+
 
 
 
