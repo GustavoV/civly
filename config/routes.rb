@@ -2,7 +2,7 @@ Civly::Application.routes.draw do
 
   root :to => 'pages#home'
 
-  post '/users/:user_id/posts/:id/update' => 'posts#update'
+  post '/users/:user_id/posts/:id/edit' => 'posts#update'
   get '/users/:user_id/posts/:id/edit' => 'posts#edit'
   delete '/users/:user_id/posts/:id/' => 'posts#destroy'
 

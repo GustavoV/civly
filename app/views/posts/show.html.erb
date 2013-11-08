@@ -25,7 +25,8 @@
 
 
 <%= link_to 'Edit', edit_user_post_path( :id => @post.id), :class => "btn-3d blue" %>
-<%= link_to 'Delete', user_post_path( :id => @post.id), :class => "btn-3d red" %>
+
+<%= link_to 'Delete', user_post_path( :id => @post.id), { method: :delete, :class => "btn-3d red" } %>
 
 
 <br />

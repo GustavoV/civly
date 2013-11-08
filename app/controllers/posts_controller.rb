@@ -67,6 +67,7 @@ class PostsController < ApplicationController
 	def destroy
 		Post.find(params[:id]).destroy
 		user_path(@user)
+		redirect_to action: 'show_all'
 	end
 
 
