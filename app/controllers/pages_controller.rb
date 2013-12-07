@@ -22,5 +22,9 @@ class PagesController < ApplicationController
 		@business = Business.new
 	end
 
+	def charities
+	end
+	
+
 end
 
