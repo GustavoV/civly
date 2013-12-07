@@ -27,6 +27,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+#Setting Up PaperClip Photo Uploads with AmazonS3
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem 'aws-sdk', '~> 1.3.4'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -46,6 +50,8 @@ end
 group :production do
 	gem 'thin'
 	gem 'rails_12factor'
+	gem "mongoid-paperclip", :require => "mongoid_paperclip"
+	gem 'aws-sdk', '~> 1.3.4'
 end
 
 
@@ -75,6 +81,8 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem "mongoid-paperclip", :require => "mongoid_paperclip"
+  gem 'aws-sdk', '~> 1.3.4'
 end
 
 

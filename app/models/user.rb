@@ -5,6 +5,8 @@ class User
   # :confirmable, :lockable, :timeoutable and :omniauthable
   include Mongoid::Document
 
+  include Mongoid::Paperclip
+
   attr_accessor :password, :password_confirmation
 
   #this is all authentication stuff
@@ -18,6 +20,18 @@ class User
 
   #this is for posts
   has_many :posts, :order => "created_at DESC"
+
+  #this is for user created civic projects
+  # has_and_belongs_to_many :projects
+
+  #this is for user profile photo uploads
+  has_mongoid_attached_file :photo, 
+             styles: { medium: "300x300>", thumb: "100x100>" }, 
+             default_url: "/images/:style/missing.png",
+             :s3_domain_url => "civly.s3.amazonaws.com",
+             :bucket => "civly",
+             :s3_permissions => :public_read,
+             :encode => "utf8"
 
   #this is for user total points
   # has_many :points

@@ -1,0 +1,13 @@
+<% @user.all %>
+
+		<% @user.reverse_each do |u| %>
+
+			<br />
+
+			<%= image_tag u.photo.url(:medium) %>
+
+			<h1><%= u.first_name %> <%= u.last_name %></h1><h5 style="color: #14A085;">Points Earned: <%= u.user_points_earned %></h5>
+
+			<br />
+		<% end %>
+		

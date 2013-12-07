@@ -39,6 +39,14 @@ class PostsController < ApplicationController
 		@user = current_user
 		@post.update_attributes( :status => 'Hero In Action!')
 
+
+		 # @code = ""
+		 #    r = rand(1544804416/34/34/34)
+		 #    3.times do
+		 #      @code += "0123456789ABCDEFGHJKLMNPQRSTUVWXYZ"[r%34]
+		 #      r = r/34
+		 #    end
+
 		@user.user_points_earned += @post.points.to_i
 
 		@user.save

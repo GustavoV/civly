@@ -1,9 +1,15 @@
 <div style="float: left;">
 	<h1 style="color: #0E99DA; margin-top: -25px;"><%= @user.first_name %> <%= @user.last_name %></h1>
-	
+
+	<%= image_tag @user.photo.url(:medium) %>
+
 	<% if current_user %>
-	             <%= link_to(image_tag("http://cloud-media.com/wp-content/uploads/2013/10/Civly-Hero-Captain-America-Gravatar.png"), current_user, ) %>
+             <%= link_to(image_tag("http://cloud-media.com/wp-content/uploads/2013/10/Civly-Hero-Captain-America-Gravatar.png")) %>
 	<% end %>
+
+	<br />
+
+	<%= link_to 'Edit Profile', edit_user_path(:id => @user._id), :class => "btn-3d blue" %>
 
 	<%= link_to "Post", new_user_post_path(@user), :class => "btn-3d red" %>
 	<h2 style="color: #14A085; margin-top: -20px;"> Points Earned: <%= @user.user_points_earned %></h2>

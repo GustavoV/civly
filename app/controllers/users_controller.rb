@@ -10,25 +10,35 @@ class UsersController < ApplicationController
 		# @hero_level_5 = User.find(params[:id]).where(:user_points.gt => 8000).to_a
 	end
 	
+	def show_all
+		@user = User.all
+	end
+
 	def new
 		@user = User.new
 	end
 
 	def create
-		@user = User.create(params[:user].permit(:first_name, :last_name, :email, :password, :password_confirmation, :user_points_posted, :user_points_earned))
+		@user = User.create(params[:user].permit(:first_name, :last_name, :email, :password, :password_confirmation, :user_points_posted, :user_points_earned, :photo))
 		redirect_to root_url
 	end
-	
-	# def addPoints
-	# 	@user = User.find(params[:id])
-	# 	userPoints = @user.user_points + post.points 
-	# 	user.save(point: userPoints)
-	# end
+
+	def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+		@user = User.find(params[:id])
+
+		if @user.update_attributes(params[:user].permit(:first_name, :last_name, :email, :password, :password_confirmation, :user_points_posted, :user_points_earned, :photo))
+			redirect_to action: 'show', id: @user
+		else
+			render 'edit'
+		end
+	end
+
+	def index
+	end
 
 	
-
-
-
-
-
 end

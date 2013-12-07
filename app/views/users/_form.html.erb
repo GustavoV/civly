@@ -21,6 +21,19 @@
 	<%= u.password_field :password_confirmation, :placeholder => 'Re-enter Password', class: "sign_up_text" %>
 </p>
 
+
+
+<% if @user.photo.blank? == false %>
+  <p>
+    <%= image_tag @user.photo.url(:medium) %>
+  </p>
+  <% end %>
+    <p>
+  	<%= u.label :photo  %> <br>
+    <%= u.file_field :photo %>
+  </p>
+
+
 <%= u.submit 'Sign Up', :class => "btn-3d red" %>
 
 
