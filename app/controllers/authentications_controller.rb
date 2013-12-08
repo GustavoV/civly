@@ -17,9 +17,9 @@ class AuthenticationsController < ApplicationController
         # authenticate user
         if user.authenticate(params[:user][:password])
           session[:user_id] = user.id
-          if user[:role] == "hero"
+          if user[:role] == :hero
             redirect_to all_posts_path
-          elsif user.role == :patron
+          elsif user[:role] == :patron || user[:role] == :group
             redirect_to user_path
           else
             redirect_to all_posts_path
