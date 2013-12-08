@@ -147,9 +147,6 @@
                 </ul> <!-- /Sub menu -->
             </li>
 
-            <li class="active">
-              <%= link_to 'Reports', reports_path(max_results: 10) %>
-            </li>
 
             <li class="active">
                 <a href="/all_posts">
@@ -157,11 +154,15 @@
                   <span class="navbar-unread">1</span>
                 </a>
                 <ul>
+                  <li class="active">
+                      <%= link_to 'Reports', reports_path(max_results: 10) %>
+                  </li>
                   <li><a href="#fakelink">Local</a></li>
                       <li><a href="#fakelink">Education</a></li>
                       <li><a href="#fakelink">Poverty</a></li>
                       <li><a href="#fakelink">Environment</a></li>
                       <li><a href="#fakelink"><span style="color: #F1EE7C;">See More...</span></a></li>
+                      
                 </ul>
               </li>
 
