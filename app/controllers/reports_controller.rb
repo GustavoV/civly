@@ -15,4 +15,9 @@ class ReportsController < ApplicationController
 		end
 	end
 
+	def show
+		report = Report.new
+		@report = report.by_report_id(params[:id], include_details: 'True')
+	end
+
 end

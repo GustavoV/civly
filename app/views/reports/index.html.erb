@@ -9,7 +9,7 @@
     <% @reports.each do |report| %>
       <tr>
         <td><%= report['Id'] %></td>
-        <td><%= report['RequestType'] %></td>
+        <td><%= link_to(report['RequestType'], report_path(report['Id'])) %></td>
         <td><%= report['DateUpdated'] %></td>
         <td><%= image_tag(report['ImageUrlMd'], alt: "Image of #{report['RequestType']}") %></td>
       </tr>

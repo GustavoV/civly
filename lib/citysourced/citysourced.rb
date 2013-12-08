@@ -10,6 +10,10 @@ class Citysourced
 		@city = attributes[:city]
 		@state = attributes[:state]
 		@radius = attributes[:radius]
+		@report_id = attributes[:report_id]
+		@include_details = attributes[:include_details]
+		@include_comments = attributes[:include_comments]
+		@include_votes = attributes[:include_votes]
 		@max_results = attributes[:max_results]
 		@include_details = attributes[:include_details]
 		@date_range_start = attributes[:date_range_start]
@@ -27,6 +31,8 @@ class Citysourced
 			City: @city,
 			State: @state,
 			Radius: @radius,
+			ReportId: @report_id,
+
 			MaxResults: @max_results,
 			IncludeDetails: @include_details,
 			DateRangeStart: @date_range_start,
@@ -45,6 +51,13 @@ class Citysourced
 			"#{BASE_URI}/cs/rest/#{@api_request_type}.ashx?Output=json", body: "#{self.to_xml}"
 		).parsed_response
 		parsed_response.first[1]['Reports']['Report']
+	end
+
+	def get_report
+		parsed_response = HTTParty.post(
+			"#{BASE_URI}/cs/rest/#{@api_request_type}.ashx?Output=json", body: "#{self.to_xml}"
+		).parsed_response
+		parsed_response.first[1]['Report']
 	end
 
 end
