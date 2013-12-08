@@ -19,7 +19,13 @@ class PagesController < ApplicationController
 	end
 
 	def sponsors
-		@business = Business.new
+		
+	end
+
+	def charities
+	end
+
+	def businesses
 	end
 
 end

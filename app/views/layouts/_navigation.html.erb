@@ -8,9 +8,6 @@
 <ul class="nav pull-right">
                <li style="width: 75px;">
                       <% if current_user == nil %>
-                                <li style="font-size: 10px; margin-top: 20px; margin-right: 10px;">
-                                  Already have an account?
-                        </li>
                         <li style="font-size: 10px; margin-right: 10px; width: 100px;">
                          <%= link_to "Log In", "authentications/new", :class => "login_btn" %>
                       <% end %>
@@ -56,10 +53,6 @@
 
     <div class="nav-collapse">
           <ul class="nav navbar-nav navbar-right">
-            
-            <li>
-              <%= link_to "Causes", '/all_posts', 'data-no-turbolink' => true %>
-            </li>
 
             <li class="active">
                 <a href="pages/heroes">
@@ -67,6 +60,10 @@
                   <span class="navbar-unread">1</span>
                 </a>
                 <ul>
+
+                  <li>
+                    <a href="/all_users">Local Heroes</a>
+                  </li>
                   
                   <li>
                     <%= link_to 'Celebrities', page_path('celebrities') %>
@@ -81,19 +78,43 @@
                       <li><a href="pages/sponsors"><span style="color: #F1EE7C;">See All...</span></a></li>
                     </ul> <!-- /Sub menu -->
                   </li>
+                </ul> <!-- /Sub menu -->
+            </li>
+
+
+            <li class="active">
+                <a href="pages/patrons">
+                  Patrons
+                  <span class="navbar-unread">1</span>
+                </a>
+                <ul>
+                  
+                  <li>
+                    <%= link_to 'Offers', page_path('offers') %>
+                    <ul>
+                      <li><span style="color: #45BEA6;">3,265 Celebrities Supporting Charities</span>
+                      </li>
+                      <li><a href="#fakelink">Whole Foods</a></li>
+                      <li><a href="#fakelink">Ben & Jerry's</a></li>
+                      <li><a href="#fakelink">Starbucks</a></li>
+                      <li><a href="#fakelink">Novel Cafe</a></li>
+                      <li><a href="#fakelink">Hummus Bar</a></li>
+                      <li><a href="pages/sponsors"><span style="color: #F1EE7C;">See All...</span></a></li>
+                    </ul> <!-- /Sub menu -->
+                  </li>
                   <li><a href="/all_users">Local Heroes</a></li>
                 </ul> <!-- /Sub menu -->
             </li>
 
 
             <li class="active">
-                <a href="pages/sponsors">
-                  Charities
+                <a href="pages/community">
+                  Community
                   <span class="navbar-unread">1</span>
                 </a>
                 <ul>
                   <li>
-                    <%= link_to 'Charities', page_path('sponsors') %>
+                    <%= link_to 'Local Charities', page_path('charities') %>
                     <ul>
                       <li>
                         <span style="color: #45BEA6;">1,970 Charities With Celebrity Supporters</span>
@@ -105,16 +126,29 @@
                       <li><a href="#fakelink">ROWW</a></li>
                       <li><a href="#fakelink">PETA</a></li>
                       <li><a href="#fakelink">Save The Music</a></li>
-                      <li><a href="pages/celebrities"><span style="color: #F1EE7C;">See All...</span></a></li>
+                      <li><a href="pages/charities"><span style="color: #F1EE7C;">See All...</span></a></li>
                     </ul> <!-- /Sub menu -->
                   </li>
-                  <li><%= link_to 'Local Sponsors', page_path('sponsors') %></li>
-                  <li><a href="#fakelink">Local Heroes</a></li>
+                  <li><a href="#fakelink">Local Government</a></li>
+                  <li><a href="#fakelink">Local Schools</a></li>
+                  <li><a href="#fakelink">Local Non-Profits</a></li>
                 </ul> <!-- /Sub menu -->
             </li>
             
-
-
+            <li class="active">
+                <a href="/all_posts">
+                  Causes
+                  <span class="navbar-unread">1</span>
+                </a>
+                <ul>
+                  <li><a href="#fakelink">Local</a></li>
+                      <li><a href="#fakelink">Health</a></li>
+                      <li><a href="#fakelink">Education</a></li>
+                      <li><a href="#fakelink">Poverty</a></li>
+                      <li><a href="#fakelink">Environment</a></li>
+                      <li><a href="#fakelink"><span style="color: #F1EE7C;">See More...</span></a></li>
+                </ul>
+              </li>
 
              <li class="active">
                 <a href="#fakelink">
@@ -126,11 +160,11 @@
                     <%= link_to 'How To', page_path('mission') %>
                     <ul>
                       
-                      <li><a href="#fakelink">Be A Hero</a></li>
-                      <li><a href="#fakelink">Become A Sponsor</a></li>
-                      <li><a href="#fakelink">Redeem Points</a></li>
-                      <li><a href="#fakelink">Start A Group</a></li>
-                      <li><%= link_to 'Share Your Badge', page_path('badges') %></li>
+                      <li style="width: 85px;"><a href="#fakelink">Be A Hero</a></li>
+                      <li style="width: 85px;"><a href="#fakelink">Be A Patron</a></li>
+                      <li style="width: 85px;"><a href="#fakelink">Redeem Coins</a></li>
+                      <li style="width: 85px;"><a href="#fakelink">Start A Group</a></li>
+                      <li style="width: 85px;"><%= link_to 'Share Your Badge', page_path('badges') %></li>
                     </ul> <!-- /Sub menu -->
                   </li>
                   <li><%= link_to 'Our Mission', page_path('mission') %></li>
