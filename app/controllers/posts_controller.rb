@@ -29,11 +29,29 @@ class PostsController < ApplicationController
 
 	def show_all
 		@posts = Post.all
-		puts "$" * 100
-		puts params 
+		@arr = []
+		@jsonPosts = Post.each do |p|
+			puts p.inspect
+			puts '^' * 200
+			arrLatLng = []
+			arrLatLng << p.lat
+			arrLatLng << p.lon
+			arrLatLng << p.post_title
+			arrLatLng << p.description
+			arrLatLng << p.points
+			arrLatLng << p._id
+			@arr << arrLatLng
+		end 
+
+		@postsLatLng = @arr.to_json
+		puts @postsLatLng
+		# render json: @posts
 	end
 
 	def change_status
+		puts "$" * 100
+		puts params
+		puts "$" * 100
 
 		@post = Post.find(params[:id])
 		@user = current_user

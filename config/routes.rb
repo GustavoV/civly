@@ -25,7 +25,6 @@ Civly::Application.routes.draw do
   get 'businesses/new' => 'businesses#new'
   post 'businesses' => 'businesses#create'
 
-
   get 'businesses/new' => 'businesses#new'
   post 'businesses' => 'businesses#create'
 
@@ -33,7 +32,7 @@ Civly::Application.routes.draw do
   get 'all_posts' => 'posts#show_all'
 
   get 'all_users(/:loc)' => 'users#show_all'
-  get 'change_status' => 'posts#change_status'
+  put 'change_status' => 'posts#change_status'
 
 	resources :reports, only: [:index, :show]
 
