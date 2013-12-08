@@ -10,99 +10,143 @@
 var map;
 
 function initialize() {
-  var mapOptions = {
-    zoom: 6,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+  var LocationData = <%= @postsLatLng %>;
+ 
+var map = 
+    new google.maps.Map(document.getElementById('map-canvas'));
 
+var bounds = new google.maps.LatLngBounds();
+// console.log(bounds);
+var infowindow = new google.maps.InfoWindow();
+// console.log(infowindow);
 
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-
-
-
-   		var styles = [
-		  {
-		    stylers: [
-		      { hue: "#00ffe6" },
-		      { saturation: -20 }
-		    ]
-		  },{
-		    featureType: "road",
-		    elementType: "geometry",
-		    stylers: [
-		      { lightness: 100 },
-		      { visibility: "simplified" }
-		    ]
-		  },{
-		    featureType: "road",
-		    elementType: "labels",
-		    stylers: [
-		      { visibility: "off" }
-		    ]
-		  }
-		];
-
-		map.setOptions({styles: styles});
-
-
-
-
-  // Try HTML5 geolocation
-  if(navigator.geolocation) {
-  
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-    var myLoc = {}
-    myLoc.lat = position.coords.latitude;
-    myLoc.lon = position.coords.longitude;
-    console.log(myLoc);
-
-  $.get( "/all_posts/" + JSON.stringify(myLoc), function( data ) {
-  console.log(data); // console.log is showing all of the myLoc data on the front-end???? 
-});
-
-      console.log(position.coords.latitude);
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'Location found using HTML5.'
-
-
-      });
-
-      map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
+for (var i in LocationData)
+{
+    var p = LocationData[i];
+    var latlng = new google.maps.LatLng(p[0], p[1]);
+    bounds.extend(latlng);
+     
+    var marker = new google.maps.Marker({
+        position: latlng,
+        map: map
     });
-  } else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
+ 
+    google.maps.event.addListener(marker, 'click', function() {
+        console.log(this);
+        infowindow.setContent(this.title);
+        infowindow.open(map, this);
+    });
+}
+if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(function(position) {
+         initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+         map.setCenter(initialLocation);
+     });
+}
+ 
+map.fitBounds(bounds);
+//   var mapOptions = {
+//     zoom: 6,
+//     mapTypeId: google.maps.MapTypeId.ROADMAP
+//   };
+
+//   map = new google.maps.Map(document.getElementById('map-canvas'),
+//       mapOptions);
+ 
+//   var postLatLng = <%= @postsLatLng %>
+//   var bounds = new google.maps.LatLngBounds();
+//   var infowindow = new google.maps.InfoWindow();
+//   // var myLatlng = new google.maps.LatLng(postLatLng[0][0], postLatLng[0][1]);
+//   for (i=0; i< postLatLng.length; i++) {
+//     marker = new google.maps.Marker({
+//         position: new google.maps.LatLng(postLatLng[i][0], postLatLng[i][1]),
+//         map: map
+//   })};
+//   console.log(postLatLng);
+
+//   marker.setMap(map);
+//    		var styles = [
+// 		  {
+// 		    stylers: [
+// 		      { hue: "#00ffe6" },
+// 		      { saturation: -20 }
+// 		    ]
+// 		  },{
+// 		    featureType: "road",
+// 		    elementType: "geometry",
+// 		    stylers: [
+// 		      { lightness: 100 },
+// 		      { visibility: "simplified" }
+// 		    ]
+// 		  },{
+// 		    featureType: "road",
+// 		    elementType: "labels",
+// 		    stylers: [
+// 		      { visibility: "off" }
+// 		    ]
+// 		  }
+// 		];
+
+// 		map.setOptions({styles: styles});
 
 
 
-function addLoc() {
 
-}	
-function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
+//   // Try HTML5 geolocation
+  // if(navigator.geolocation) {
+  
+  //   navigator.geolocation.getCurrentPosition(function(position) {
+  //     var pos = new google.maps.LatLng(position.coords.latitude,
+  //                                      position.coords.longitude);
+  //   var myLoc = {}
+  //   myLoc.lat = position.coords.latitude;
+  //   myLoc.lon = position.coords.longitude;
+  //   console.log(myLoc);
 
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(60, 105),
-    content: content
-  };
+//   $.get( "/all_posts/" + JSON.stringify(myLoc), function( data ) {
+//   console.log(data); // console.log is showing all of the myLoc data on the front-end???? 
+// });
 
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
+// //       console.log(position.coords.latitude);
+// //       var infowindow = new google.maps.InfoWindow({
+// //         map: map,
+// //         position: pos,
+// //         content: 'Location found using HTML5.'
 
-} 
+
+// //       });
+
+// //       map.setCenter(pos);
+// //     }, function() {
+// //       handleNoGeolocation(true);
+// //     });
+// //   } else {
+// //     // Browser doesn't support Geolocation
+// //     handleNoGeolocation(false);
+// //   }
+
+
+
+// function addLoc() {
+
+// }	
+// function handleNoGeolocation(errorFlag) {
+//   if (errorFlag) {
+//     var content = 'Error: The Geolocation service failed.';
+//   } else {
+//     var content = 'Error: Your browser doesn\'t support geolocation.';
+//   }
+
+//   var options = {
+//     map: map,
+//     position: new google.maps.LatLng(60, 105),
+//     content: content
+//   };
+
+//   var infowindow = new google.maps.InfoWindow(options);
+//   map.setCenter(options.position);
+
+// } 
 
 } // END Initialize function
 
