@@ -30,7 +30,12 @@ class Citysourced
 		}
 	end
 
-	def to_params
+	def to_xml
 		self.to_hash.to_xml(root: 'CsRequest')
 	end
+
+	def get_graffiti_by_address
+		HTTParty.post("http://api.citysourced.com/cs/rest/GetReportsByAddress.ashx?Output=json", body: "#{self.to_xml}")
+	end
+
 end
