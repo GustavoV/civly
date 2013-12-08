@@ -11,10 +11,35 @@ var map;
 console.log(<%= raw @postsLatLng %>);
 function initialize() {
   var LocationData = <%= raw @postsLatLng %>
- 
+var mapOptions = {
+    zoom: 6,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+};
 var map = 
-    new google.maps.Map(document.getElementById('map-canvas'));
+    new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var styles = [
+    {
+      stylers: [
+        { hue: "#00ffe6" },
+        { saturation: -20 }
+      ]
+    },{
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        { lightness: 100 },
+        { visibility: "simplified" }
+      ]
+    },{
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    }
+  ];
 
+                map.setOptions({styles: styles});
 var bounds = new google.maps.LatLngBounds();
 // console.log(bounds);
 
