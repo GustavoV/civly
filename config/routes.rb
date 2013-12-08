@@ -27,7 +27,6 @@ Civly::Application.routes.draw do
   get 'businesses/new' => 'businesses#new'
   post 'businesses' => 'businesses#create'
 
-
   get 'businesses/new' => 'businesses#new'
   post 'businesses' => 'businesses#create'
 

@@ -8,9 +8,9 @@
    <script type="text/javascript">
 
 var map;
-
+console.log(<%= @postsLatLng.html_safe %>);
 function initialize() {
-  var LocationData = <%= @postsLatLng %>;
+  var LocationData = <%= @postsLatLng.html_safe %>
  
 var map = 
     new google.maps.Map(document.getElementById('map-canvas'));
@@ -19,6 +19,19 @@ var bounds = new google.maps.LatLngBounds();
 // console.log(bounds);
 var infowindow = new google.maps.InfoWindow();
 // console.log(infowindow);
+// var image = {
+//     url: 'http://cloud-media.com/wp-content/uploads/2013/10/Civly-Winged-Icon-Logo-Beta.png',
+//     // This marker is 20 pixels wide by 32 pixels tall.
+//     size: new google.maps.Size(20, 32)
+//   };
+debugger
+var image = {
+  url: 'http://cloud-media.com/wp-content/uploads/2013/10/Civly-Winged-Icon-Logo-Beta.png',
+  size: new google.maps.Size(71, 71),
+  origin: new google.maps.Point(0, 0),
+  anchor: new google.maps.Point(17, 34),
+  scaledSize: new google.maps.Size(25, 25)
+};
 
 for (var i in LocationData)
 {
@@ -28,7 +41,8 @@ for (var i in LocationData)
      
     var marker = new google.maps.Marker({
         position: latlng,
-        map: map
+        map: map,
+        icon: image
     });
  
     google.maps.event.addListener(marker, 'click', function() {

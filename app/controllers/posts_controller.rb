@@ -32,15 +32,13 @@ class PostsController < ApplicationController
 		@arr = []
 		@jsonPosts = Post.each do |p|
 			arrLatLng = []
-			puts "%" * 200
-			puts p.inspect
 			arrLatLng << p.lat
 			arrLatLng << p.lon
+			arrLatLng.to_json
 			@arr << arrLatLng
-		end 
-
-		puts "$" * 100
+		end
 		@postsLatLng = @arr.to_json
+		puts "%" * 100
 		puts @postsLatLng
 		# render json: @posts
 	end
