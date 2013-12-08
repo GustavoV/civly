@@ -1,0 +1,15 @@
+
+  <div class='feed_item'> <!-- jQuery Masonry feed_item class -->
+              
+          		<% @posts.reverse_each do |p| %>
+          			<% user = User.find(p.user_id) %>
+          			<br />
+          			<p><%= p.user.first_name %> <%= p.user.last_name %></p><%= link_to p.post_title, user_post_path(user, p.id), 'data-no-turbolink' => true %> <br />
+              
+                <img src="http://cloud-media.com/wp-content/uploads/2013/12/civly-coin-beta-all-posts-icon.png" />
+                <%= p.points %>
+          			<br />
+          		<% end %>
+  </div>
+
+
