@@ -1,0 +1,14 @@
+.feed_item {
+  width:200px;
+  height:167px;
+  margin:2px;
+  font-size:12px;
+  overflow:hidden;
+  border:1px solid #999;
+  float: left;
+  cursor:pointer;
+  }
+
+#feed_container {
+	margin-top: 0px;
+}

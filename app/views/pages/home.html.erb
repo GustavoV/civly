@@ -1,22 +1,19 @@
-<div class="container" style="margin-top: -90px; width: 800px;">
+<div class="span8" style="margin-top: -90px;">
 
-  <table> 
-    <tr>
-      <td>
+
         <img alt="civly" src="http://cloud-media.com/wp-content/uploads/2013/10/civly-beta-banner-logo-2013-2.png">
        
         <iframe src="//player.vimeo.com/video/79541124" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p>We Are <a href="http://civly.com">Civly Heroes</a></p>
 
-
-      </td>
+</div>
 
       <br />
 
-      <td>      
+<div class="span3" style="margin-top: -90px; margin-left: 5px;">      
          <h2><strong>
           Be A Hero </strong>
           </h2>
-          <p>
+          <p style="margin-left: 5px;">
             <% if current_user %>
               <%= link_to 'My Profile', current_user %>
 
@@ -25,9 +22,7 @@
             <% end %>
           </p>
             <%= render 'users/form' %>
-      </td>
-    </tr>
-  </table>
+    
 </div>
 
 
@@ -54,44 +49,68 @@
       <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
-
-      <div id="page1" class="container">
+<div id="page1" class="container">
     <h2>
-Share Civly Badges or Embed On Your Site
-  </h2>
+      Share Civly Badges or Embed On Your Site
+    </h2>
     <div class="row-fluid">
       <div class="span3">
+
+        <span class='st_pinterest_vcount' displayText='Pinterest'></span>
+        <span class='st_twitter_vcount' displayText='Tweet'></span>
+
          <p>
-          <a href='http://www.civly.com'><img src='http://cloud-media.com/wp-content/uploads/2013/12/civly-we-are-heroes-badge-beta.png' alt='' width='250' border='0' /></a></p>
+          <img src='http://cloud-media.com/wp-content/uploads/2013/12/civly-we-are-heroes-badge-beta.png' alt='' width='250' border='0' />
+
+
+        </p>
 
           <textarea onclick='this.focus();this.select()' style='width:250;height:100px;margin: 5px; padding: 5px;'>
           <p><br /><br /><a href='http://www.civly.com'><img src='http://cloud-media.com/wp-content/uploads/2013/12/civly-we-are-heroes-badge-beta.png' alt='We Are Heroes' width='192px' border='0' /></a></p></textarea>
       </div>
 
       <div class="span3">
+        
+        <span class='st_pinterest_vcount' displayText='Pinterest'></span>
+        <span class='st_twitter_vcount' displayText='Tweet'></span>
 
-        <p><a href='http://www.civly.com'><img src='http://houstongolden.com/wp-content/uploads/2013/12/we-accept-civlycoin-badge-1-.png' alt='We Accept CivlyCoin' width='250px' border='0' /></a></p>
+
+        <p><img src='http://houstongolden.com/wp-content/uploads/2013/12/we-accept-civlycoin-badge-1-.png' alt='We Accept CivlyCoin' width='250px' border='0' /></p>
+
 
         <h3></h3><textarea onclick='this.focus();this.select()' style='width:250px;height:100px;margin: 5px; padding: 5px;'><p><a href='http://www.civly.com'><img src='http://houstongolden.com/wp-content/uploads/2013/12/we-accept-civlycoin-badge-1-.png' alt='We Accept CivlyCoin' width='192px' border='0' /></a></p></textarea>
       </div>
 
 
       <div class="span3">
+
+
+        <span class='st_pinterest_vcount' displayText='Pinterest'></span>
+        <span class='st_twitter_vcount' displayText='Tweet'></span>
       
-        <p><a href='http://www.civly.com'><img src='http://cloud-media.com/wp-content/uploads/2013/12/civly-be-a-hero-badge-beta.png' alt='Be A Hero' width='250px' border='0' /></a></p>
+        <p><img src='http://cloud-media.com/wp-content/uploads/2013/12/civly-be-a-hero-badge-beta.png' alt='Be A Hero' width='250px' border='0' /></p>
+
 
         <textarea onclick='this.focus();this.select()' style='width:250px;height:100px;margin: 5px; padding: 5px;'><p><a href='http://www.civly.com'><img src='http://cloud-media.com/wp-content/uploads/2013/12/civly-be-a-hero-badge-beta.png' alt='Be A Hero' width='192px' border='0' /></a></p></textarea>
       </div>
 
       <div class="span3">
 
-        <p><a href='http://www.civly.com'><img src='http://houstongolden.com/wp-content/uploads/2013/12/civly-we-accept-civly-coin-badge-beta.png' alt='We Accept CivlyCoin' width='250px' border='0' /></a></p>
+
+        <span class='st_pinterest_vcount' displayText='Pinterest'></span>
+        <span class='st_twitter_vcount' displayText='Tweet'></span>
+
+        <p><img src='http://houstongolden.com/wp-content/uploads/2013/12/civly-we-accept-civly-coin-badge-beta.png' alt='We Accept CivlyCoin' width='250px' border='0' /></p>
+
 
         <textarea onclick='this.focus();this.select()' style='width:250px;height:100px'><p><a href='http://www.civly.com'><img src='http://houstongolden.com/wp-content/uploads/2013/12/civly-we-accept-civly-coin-badge-beta.png' alt='We Accept CivlyCoin' width='192px' border='0' /></a></p></textarea>
       </div>
 
     </div>
    </div>
+
+
+<!-- END OF THE SHARE/EMBED CIVLY BADGES -->
 
 <div id="page1" class="container">
     <h2>
@@ -109,7 +128,7 @@ Share Civly Badges or Embed On Your Site
       <div class="span4">
         <a href="http://civly.com" target="_blank"><img class="marketing-img" src="http://cloud-media.com/wp-content/uploads/2013/10/civly-beta-logo-white-square-2013-2.png"></a>
     <a href="/" target="_blank"><h2>Civly.com</h2></a>   
-<p>Civly is a revolutionary civic activism platform that empowers local heroes by connecting them with people and causes they can help and incentivising action through the valuable civic currency, <em>CivlyCoin</em>.</p>
+<p>Civly is a powerful civic activism platform that empowers local heroes by connecting them with people and causes they can help and incentivising action through a revolutionary new civic currency, <em>CivlyCoin</em>.</p>
 
       </div>
       <div class="span4">
