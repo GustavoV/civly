@@ -1,49 +1,62 @@
-<div class="span8" style="margin-top: -90px;">
+<div class="row" style="background-image: url('http://cloud-media.com/wp-content/uploads/2013/12/civly-background-polygon-beta14.png'); background-repeat: no-repeat;">
+
+        <div class="span8" style="margin-top: -90px; margin-left: 20px; text-align: center;">
+          
 
 
-        <img alt="civly" src="http://cloud-media.com/wp-content/uploads/2013/10/civly-beta-banner-logo-2013-2.png">
-       
-        <iframe src="//player.vimeo.com/video/79541124" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p>We Are <a href="http://civly.com">Civly Heroes</a></p>
+                <img alt="civly" src="http://cloud-media.com/wp-content/uploads/2013/10/civly-beta-banner-logo-2013-2.png">
+               
+                <iframe src="//player.vimeo.com/video/79541124" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p>We Are <a href="http://civly.com">Civly Heroes</a></p>
 
-</div>
+                <br />
+     
+                
+        </div>
 
-      <br />
+              <br />
 
-<div class="span3" style="margin-top: -90px; margin-left: 5px;">      
-         <h2><strong>
-          Be A Hero </strong>
-          </h2>
-          <p style="margin-left: 5px;">
-            <% if current_user %>
-              <%= link_to 'My Profile', current_user %>
+        <div class="span3" style="margin-top: -90px; margin-left: 8px; text-align: center;">      
+                 <h2 style="color: #34495E;"><strong>
+                  Be A Hero </strong>
+                  </h2>
+                  <p style="margin-left: 5px;">
+                    <% if current_user %>
+                      <%= link_to 'My Profile', current_user %>
 
-              <%= link_to "Log Out", logout_path %>
+                      <%= link_to "Log Out", logout_path %>
 
-            <% end %>
-          </p>
-            <%= render 'users/form' %>
-    
+                    <% end %>
+                  </p>
+                    <%= render 'users/form' %>
+            
+        </div>
 </div>
 
 
     <!-- Footer
     ================================================== -->
-  <hr class="featurette-divider">
 
 
-      <div class="row featurette">
+      <div class="row featurette" style="background-image: url('http://cloud-media.com/wp-content/uploads/2013/12/civlycoin-banner-beta-1.png'); background-repeat: no-repeat; margin-top: -15px;">
         <div class="col-md-5" style="float:right;">
-          <h2 class="featurette-heading">The First Civic Currency</h2>
+          <h2 class="featurette-heading" style="color: white;">The First Civic Currency  <img src="http://cloud-media.com/wp-content/uploads/2013/12/civly-coin-small-beta-1.png"></h2>
 
-          <img src="http://cloud-media.com/wp-content/uploads/2013/12/civly-coin-small-beta-1.png" style="width: 100px;">
-          <p class="lead"><a href="/">Civly</a> is gameifying civic activism by allowing local businesses to sponsor local heroes who can earn "CivlyCoins" to redeem for real dollars at participating businesses.</p>
+         
 
-        <img class="featurette-image img-responsive" src="http://cloud-media.com/wp-content/uploads/2013/12/civlycoin-banner-beta-1.png" alt="CivlyCoin">
+          <p class="lead" style="text-align: center; margin-left: 20px;"><span style="color: white;">Civly</span> is gamifying civic activism by allowing local businesses to sponsor local heroes who can earn "CivlyCoins" to redeem for real dollars at participating businesses.</p>
+
+
+        <img class="featurette-image img-responsive" style="margin-top: -35px;" src="http://cloud-media.com/wp-content/uploads/2013/12/civlycoin-banner-beta-1.png" alt="CivlyCoin">
+
+
+
+
         </div>
         <div class="col-md-7">
         </div>
 
       </div>
+ <!-- // END SECTION CONTAINER -->
 
 
       <hr class="featurette-divider">
@@ -54,7 +67,7 @@
       Share Civly Badges or Embed On Your Site
     </h2>
     <div class="row-fluid">
-      <div class="span3">
+      <div class="span6">
 
         <span class='st_pinterest_vcount' displayText='Pinterest'></span>
         <span class='st_twitter_vcount' displayText='Tweet'></span>
@@ -69,32 +82,8 @@
           <p><br /><br /><a href='http://www.civly.com'><img src='http://cloud-media.com/wp-content/uploads/2013/12/civly-we-are-heroes-badge-beta.png' alt='We Are Heroes' width='192px' border='0' /></a></p></textarea>
       </div>
 
-      <div class="span3">
-        
-        <span class='st_pinterest_vcount' displayText='Pinterest'></span>
-        <span class='st_twitter_vcount' displayText='Tweet'></span>
 
-
-        <p><img src='http://houstongolden.com/wp-content/uploads/2013/12/we-accept-civlycoin-badge-1-.png' alt='We Accept CivlyCoin' width='250px' border='0' /></p>
-
-
-        <h3></h3><textarea onclick='this.focus();this.select()' style='width:250px;height:100px;margin: 5px; padding: 5px;'><p><a href='http://www.civly.com'><img src='http://houstongolden.com/wp-content/uploads/2013/12/we-accept-civlycoin-badge-1-.png' alt='We Accept CivlyCoin' width='192px' border='0' /></a></p></textarea>
-      </div>
-
-
-      <div class="span3">
-
-
-        <span class='st_pinterest_vcount' displayText='Pinterest'></span>
-        <span class='st_twitter_vcount' displayText='Tweet'></span>
-      
-        <p><img src='http://cloud-media.com/wp-content/uploads/2013/12/civly-be-a-hero-badge-beta.png' alt='Be A Hero' width='250px' border='0' /></p>
-
-
-        <textarea onclick='this.focus();this.select()' style='width:250px;height:100px;margin: 5px; padding: 5px;'><p><a href='http://www.civly.com'><img src='http://cloud-media.com/wp-content/uploads/2013/12/civly-be-a-hero-badge-beta.png' alt='Be A Hero' width='192px' border='0' /></a></p></textarea>
-      </div>
-
-      <div class="span3">
+      <div class="span6">
 
 
         <span class='st_pinterest_vcount' displayText='Pinterest'></span>
@@ -142,7 +131,7 @@
    </div>
 
 
-      <div class="row featurette">
+      <div class="container">
         <div class="col-md-7" style="float:right;">
           <h2 class="featurette-heading">“We All Want To Be Heroes.
  <span class="text-muted"><a href="authentications/new">Join Civly Today.”</a></span></h2>
@@ -184,7 +173,7 @@
 
       <!-- FOOTER -->
       <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p class="pull-right"><a href="#"><img src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/64/Arrows-Up-circular-icon.png"></a></p>
       </footer>
 
     </div><!-- /.container -->
@@ -196,5 +185,9 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
     <script src="../../docs-assets/js/holder.js"></script>
+    <!-- ShareThis buttons for badges -->
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "5c3e4322-06e5-4753-a9be-9ea7dcc6adba", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 
 

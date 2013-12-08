@@ -1,4 +1,6 @@
-<h2>Submit Your Cause</h2>
+<div class="container">
+
+<h2>Post Your Need</h2>
 <%= form_for([@user, @user.posts.build]) do |p| %>
 
 <p>
@@ -6,11 +8,11 @@
 </p>
 
 <p>
-	<%= p.text_field :description, :placeholder => 'Describe your cause.', class: "sign_up_text" %>
+	<%= p.text_field :description, :placeholder => 'Describe your need.', class: "sign_up_text" %>
 </p>
 
 <p>
-	<%= p.text_field :points, :placeholder => 'Number of Civly Points?', class: "sign_up_text" %>
+	<%= p.text_field :points, :placeholder => 'Offering Civly Coins?', class: "sign_up_text" %>
 </p>
 
 <p>
@@ -59,3 +61,6 @@ function showPosition(position)
   getLocation();
 </script>
 
+
+
+</div>

@@ -1,4 +1,6 @@
-<div style="float: left;">
+<div class="container">
+
+<div class="span5">
 	<h1 style="color: #0E99DA; margin-top: -25px;"><%= @user.first_name %> <%= @user.last_name %></h1>
 
 	<%= image_tag @user.photo.url(:medium) %>
@@ -9,9 +11,7 @@
 
 	<br />
 
-	<%= link_to 'Edit Profile', edit_user_path(:id => @user._id), :class => "btn-3d blue" %>
-
-	<%= link_to "Post", new_user_post_path(@user), :class => "btn-3d red" %>
+	<%= link_to "Post Need", new_user_post_path(@user), :class => "btn-3d red" %>
 
 	<h2 style="color: #14A085; margin-top: -20px; font-size: 32px;"> Coins Earned: <img src="http://cloud-media.com/wp-content/uploads/2013/12/civly-coin-beta-all-posts-icon.png" /><%= @user.user_points_earned %></h2>
 	<h2 style="color: #E74C3C; margin-top: -20px; font-size: 24px;"> Coins Posted: <img src="http://cloud-media.com/wp-content/uploads/2013/12/civly-coin-beta-all-posts-icon.png" /> -<%= @user.user_points_posted %></h2>
@@ -24,22 +24,23 @@
 </div>
 
 
-<div style="float: right; margin-top: -100px; width: 350px;">
+<div class="span5" style="margin-top: -100px;">
 	<br />
 		<%= @user_heroes %>
 	<br />
 
-	<h3 style="color: #0E99DA;">My Good Deeds</h3>
+	<h3 style="color: #0E99DA;">My Posted Needs</h3>
 
 	<% @user.posts.reverse_each do |post| %>
 
 		<br />
 		<%= post.post_title %>
 		<br />
-		<h3><%= post.points %> Points</h3>
+		<h3><%= post.points %> <img src="http://cloud-media.com/wp-content/uploads/2013/12/civly-coin-beta-all-posts-icon.png" /> </h3>
 		<br />
 		<%= post.description %>
 		<br />
 
 	<% end %>
+</div>
 </div>

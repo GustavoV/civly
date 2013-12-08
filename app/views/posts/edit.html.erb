@@ -1,19 +1,23 @@
-<h2>Edit Your Cause</h2>
+<dic class="container">
 
-<%= form_for :post do |p| %>
+	<h2>Edit Your Cause</h2>
 
-<p>
-	<%= p.text_field :post_title, :placeholder => "What's your post title?", class: "sign_up_text" %>
-</p>
+	<%= form_for :post do |p| %>
 
-<p>
-	<%= p.text_field :description, :placeholder => 'Describe your cause.', class: "sign_up_text" %>
-</p>
+	<p>
+		<%= p.text_field :post_title, :placeholder => "What's your post title?", class: "sign_up_text" %>
+	</p>
 
-<p>
-	<%= p.text_field :points, :placeholder => 'Number of Civly Points?', class: "sign_up_text" %>
-</p>
+	<p>
+		<%= p.text_field :description, :placeholder => 'Describe your cause.', class: "sign_up_text" %>
+	</p>
 
-<%= p.submit 'Submit', :class => "btn-3d red" %>
+	<p>
+		<%= p.text_field :points, :placeholder => 'Number of Civly Points?', class: "sign_up_text" %>
+	</p>
 
-<% end %>
+	<%= p.submit 'Submit', :class => "btn-3d red" %>
+
+	<% end %>
+
+</div>
