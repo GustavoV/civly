@@ -1,13 +1,13 @@
 require 'bcrypt'
 
-class User 
+class User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   include Mongoid::Document
 
   include Mongoid::Paperclip
 
-  attr_accessor :password, :password_confirmation
+  attr_accessor :password, :password_confirmation, :role
 
   #this is all authentication stuff
   field :first_name, type: String
@@ -15,6 +15,7 @@ class User
   field :email, type: String
   field :salt, type: String
   field :hashed_password, type: String
+  field :role, type: String
   field :user_points_posted, type: Integer, default: 10
   field :user_points_earned, type: Integer, default: 10
 
@@ -25,8 +26,8 @@ class User
   # has_and_belongs_to_many :projects
 
   #this is for user profile photo uploads
-  has_mongoid_attached_file :photo, 
-             styles: { medium: "300x300>", thumb: "100x100>" }, 
+  has_mongoid_attached_file :photo,
+             styles: { medium: "300x300>", thumb: "100x100>" },
              default_url: "/images/:style/missing.png",
              :s3_domain_url => "civly.s3.amazonaws.com",
              :bucket => "civly",
@@ -46,7 +47,7 @@ class User
   validates_presence_of :first_name
   validates_uniqueness_of :first_name, :email, :case_sensitive => false
 
-  before_save :hash_password  
+  before_save :hash_password
 
  def authenticate(password)
   self.hashed_password ==
@@ -57,7 +58,7 @@ class User
  def hash_password
   if password.present?
     self.salt = BCrypt::Engine.generate_salt
-    self.hashed_password = 
+    self.hashed_password =
     BCrypt::Engine.hash_secret(password, self.salt)
     password = password_confirmation = nil
   end

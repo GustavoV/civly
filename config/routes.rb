@@ -11,8 +11,6 @@ Civly::Application.routes.draw do
   end
   resources :authentications, only:[:new, :id, :email, :show, :create, :delete, :destroy, :index]
 
-  resources :profiles
-
   get "/logout", to: "authentications#destroy", as: "logout"
 
   get "/authentications", to: "pages#home"
@@ -31,7 +29,7 @@ Civly::Application.routes.draw do
   post 'businesses' => 'businesses#create'
 
 
-  get 'all_posts(/:loc)' => 'posts#show_all'
+  get 'all_posts' => 'posts#show_all'
 
   get 'all_users(/:loc)' => 'users#show_all'
   get 'change_status' => 'posts#change_status'
