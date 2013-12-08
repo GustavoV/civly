@@ -2,29 +2,28 @@
     <style type="text/css">
       #map-canvas { height: 600px; width: 100%; margin-left: -10px; }
     </style>
-   <script type="text/javascript"
+  <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoeQzNdisyfSFs_C8DYMR6wmPpR55GLSk&sensor=true">
-    </script>
-   <script type="text/javascript">
+  </script>
+<script type="text/javascript">
 
 var map;
-console.log(<%= @postsLatLng.html_safe %>);
+console.log(<%= raw @postsLatLng %>);
 function initialize() {
-  var LocationData = <%= @postsLatLng.html_safe %>
+  var LocationData = <%= raw @postsLatLng %>
  
 var map = 
     new google.maps.Map(document.getElementById('map-canvas'));
 
 var bounds = new google.maps.LatLngBounds();
 // console.log(bounds);
-var infowindow = new google.maps.InfoWindow();
+
 // console.log(infowindow);
 // var image = {
 //     url: 'http://cloud-media.com/wp-content/uploads/2013/10/Civly-Winged-Icon-Logo-Beta.png',
 //     // This marker is 20 pixels wide by 32 pixels tall.
 //     size: new google.maps.Size(20, 32)
 //   };
-debugger
 var image = {
   url: 'http://cloud-media.com/wp-content/uploads/2013/10/Civly-Winged-Icon-Logo-Beta.png',
   size: new google.maps.Size(71, 71),
@@ -38,19 +37,43 @@ for (var i in LocationData)
     var p = LocationData[i];
     var latlng = new google.maps.LatLng(p[0], p[1]);
     bounds.extend(latlng);
-     
+    var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">' + p[2] + '</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Description:  ' + p[3] + ' </p>'+
+      '<p>Coins:  ' + p[4] + '</p><button class="actButton">Act!</button>'
+      '</div>'+
+      '</div>';
+    
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
-        icon: image
+        icon: image,
+        _id_: p[4]
     });
- 
+    marker['infowindow'] = new google.maps.InfoWindow({
+      content: contentString
+    });
+
     google.maps.event.addListener(marker, 'click', function() {
+        this['infowindow'].open(map, this);
         console.log(this);
-        infowindow.setContent(this.title);
-        infowindow.open(map, this);
+
     });
 }
+// var url = '/change_status';
+//     $('.actButton').on('click', function() {
+//       console.log('called');
+//       var data = { 'id': p[4] };
+//       $.ajax({
+//         type: "PUT",
+//         url: url,
+//         data: data
+//       });
+//     });
+
 if (navigator.geolocation) {
      navigator.geolocation.getCurrentPosition(function(position) {
          initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -59,108 +82,6 @@ if (navigator.geolocation) {
 }
  
 map.fitBounds(bounds);
-//   var mapOptions = {
-//     zoom: 6,
-//     mapTypeId: google.maps.MapTypeId.ROADMAP
-//   };
-
-//   map = new google.maps.Map(document.getElementById('map-canvas'),
-//       mapOptions);
- 
-//   var postLatLng = <%= @postsLatLng %>
-//   var bounds = new google.maps.LatLngBounds();
-//   var infowindow = new google.maps.InfoWindow();
-//   // var myLatlng = new google.maps.LatLng(postLatLng[0][0], postLatLng[0][1]);
-//   for (i=0; i< postLatLng.length; i++) {
-//     marker = new google.maps.Marker({
-//         position: new google.maps.LatLng(postLatLng[i][0], postLatLng[i][1]),
-//         map: map
-//   })};
-//   console.log(postLatLng);
-
-//   marker.setMap(map);
-//    		var styles = [
-// 		  {
-// 		    stylers: [
-// 		      { hue: "#00ffe6" },
-// 		      { saturation: -20 }
-// 		    ]
-// 		  },{
-// 		    featureType: "road",
-// 		    elementType: "geometry",
-// 		    stylers: [
-// 		      { lightness: 100 },
-// 		      { visibility: "simplified" }
-// 		    ]
-// 		  },{
-// 		    featureType: "road",
-// 		    elementType: "labels",
-// 		    stylers: [
-// 		      { visibility: "off" }
-// 		    ]
-// 		  }
-// 		];
-
-// 		map.setOptions({styles: styles});
-
-
-
-
-//   // Try HTML5 geolocation
-  // if(navigator.geolocation) {
-  
-  //   navigator.geolocation.getCurrentPosition(function(position) {
-  //     var pos = new google.maps.LatLng(position.coords.latitude,
-  //                                      position.coords.longitude);
-  //   var myLoc = {}
-  //   myLoc.lat = position.coords.latitude;
-  //   myLoc.lon = position.coords.longitude;
-  //   console.log(myLoc);
-
-//   $.get( "/all_posts/" + JSON.stringify(myLoc), function( data ) {
-//   console.log(data); // console.log is showing all of the myLoc data on the front-end???? 
-// });
-
-// //       console.log(position.coords.latitude);
-// //       var infowindow = new google.maps.InfoWindow({
-// //         map: map,
-// //         position: pos,
-// //         content: 'Location found using HTML5.'
-
-
-// //       });
-
-// //       map.setCenter(pos);
-// //     }, function() {
-// //       handleNoGeolocation(true);
-// //     });
-// //   } else {
-// //     // Browser doesn't support Geolocation
-// //     handleNoGeolocation(false);
-// //   }
-
-
-
-// function addLoc() {
-
-// }	
-// function handleNoGeolocation(errorFlag) {
-//   if (errorFlag) {
-//     var content = 'Error: The Geolocation service failed.';
-//   } else {
-//     var content = 'Error: Your browser doesn\'t support geolocation.';
-//   }
-
-//   var options = {
-//     map: map,
-//     position: new google.maps.LatLng(60, 105),
-//     content: content
-//   };
-
-//   var infowindow = new google.maps.InfoWindow(options);
-//   map.setCenter(options.position);
-
-// } 
 
 } // END Initialize function
 
