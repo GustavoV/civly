@@ -56,10 +56,21 @@
 
     <div class="nav-collapse">
           <ul class="nav navbar-nav navbar-right">
-            
-            <li>
-              <%= link_to "Causes", '/all_posts', 'data-no-turbolink' => true %>
-            </li>
+            <li class="active">
+                <a href="/all_posts">
+                  Causes
+                  <span class="navbar-unread">1</span>
+                </a>
+                <ul>
+                  <li><a href="#fakelink">Local</a></li>
+                      <li><a href="#fakelink">Health</a></li>
+                      <li><a href="#fakelink">Education</a></li>
+                      <li><a href="#fakelink">Poverty</a></li>
+                      <li><a href="#fakelink">Environment</a></li>
+                      <li><a href="#fakelink"><span style="color: #F1EE7C;">See More...</span></a></li>
+                </ul>
+              </li>
+
 
             <li class="active">
                 <a href="pages/heroes">
@@ -87,13 +98,13 @@
 
 
             <li class="active">
-                <a href="pages/charities">
-                  Charities
+                <a href="pages/community">
+                  Community
                   <span class="navbar-unread">1</span>
                 </a>
                 <ul>
                   <li>
-                    <%= link_to 'Charities', page_path('charities') %>
+                    <%= link_to 'Local Charities', page_path('charities') %>
                     <ul>
                       <li>
                         <span style="color: #45BEA6;">1,970 Charities With Celebrity Supporters</span>
@@ -108,8 +119,9 @@
                       <li><a href="pages/charities"><span style="color: #F1EE7C;">See All...</span></a></li>
                     </ul> <!-- /Sub menu -->
                   </li>
-                  <li><%= link_to 'Local Charities', page_path('charities') %></li>
-                  <li><a href="#fakelink">Local Businesses</a></li>
+                  <li><a href="#fakelink">Local Government</a></li>
+                  <li><a href="#fakelink">Local Schools</a></li>
+                  <li><a href="#fakelink">Local Non-Profits</a></li>
                 </ul> <!-- /Sub menu -->
             </li>
             
