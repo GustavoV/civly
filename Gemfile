@@ -44,7 +44,8 @@ gem 'bcrypt-ruby'
 
 gem 'omniauth-angellist', :git => 'https://github.com/wasabit/omniauth-angellist.git'
 
-
+# APIs
+gem 'httparty'
 
 group :assets do
 gem 'twitter-bootstrap-rails'
@@ -86,6 +87,11 @@ group :development do
   gem 'rails_layout'
   gem "mongoid-paperclip", :require => "mongoid_paperclip"
   gem 'aws-sdk', '~> 1.3.4'
+	gem 'dotenv-rails'
+end
+
+group :test do
+	gem 'dotenv-rails'
 end
 
 
