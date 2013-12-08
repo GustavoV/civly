@@ -8,9 +8,6 @@
 <ul class="nav pull-right">
                <li style="width: 75px;">
                       <% if current_user == nil %>
-                                <li style="font-size: 10px; margin-top: 20px; margin-right: 10px;">
-                                  Already have an account?
-                        </li>
                         <li style="font-size: 10px; margin-right: 10px; width: 100px;">
                          <%= link_to "Log In", "authentications/new", :class => "login_btn" %>
                       <% end %>
@@ -78,6 +75,10 @@
                   <span class="navbar-unread">1</span>
                 </a>
                 <ul>
+
+                  <li>
+                    <a href="/all_users">Local Heroes</a>
+                  </li>
                   
                   <li>
                     <%= link_to 'Celebrities', page_path('celebrities') %>
@@ -89,6 +90,30 @@
                       <li><a href="#fakelink">Bono</a></li>
                       <li><a href="#fakelink">Bill Clinton</a></li>
                       <li><a href="#fakelink">Elton John</a></li>
+                      <li><a href="pages/sponsors"><span style="color: #F1EE7C;">See All...</span></a></li>
+                    </ul> <!-- /Sub menu -->
+                  </li>
+                </ul> <!-- /Sub menu -->
+            </li>
+
+
+            <li class="active">
+                <a href="pages/patrons">
+                  Patrons
+                  <span class="navbar-unread">1</span>
+                </a>
+                <ul>
+                  
+                  <li>
+                    <%= link_to 'Offers', page_path('offers') %>
+                    <ul>
+                      <li><span style="color: #45BEA6;">3,265 Celebrities Supporting Charities</span>
+                      </li>
+                      <li><a href="#fakelink">Whole Foods</a></li>
+                      <li><a href="#fakelink">Ben & Jerry's</a></li>
+                      <li><a href="#fakelink">Starbucks</a></li>
+                      <li><a href="#fakelink">Novel Cafe</a></li>
+                      <li><a href="#fakelink">Hummus Bar</a></li>
                       <li><a href="pages/sponsors"><span style="color: #F1EE7C;">See All...</span></a></li>
                     </ul> <!-- /Sub menu -->
                   </li>
@@ -138,11 +163,11 @@
                     <%= link_to 'How To', page_path('mission') %>
                     <ul>
                       
-                      <li><a href="#fakelink">Be A Hero</a></li>
-                      <li><a href="#fakelink">Become A Sponsor</a></li>
-                      <li><a href="#fakelink">Redeem Points</a></li>
-                      <li><a href="#fakelink">Start A Group</a></li>
-                      <li><%= link_to 'Share Your Badge', page_path('badges') %></li>
+                      <li style="width: 85px;"><a href="#fakelink">Be A Hero</a></li>
+                      <li style="width: 85px;"><a href="#fakelink">Be A Patron</a></li>
+                      <li style="width: 85px;"><a href="#fakelink">Redeem Coins</a></li>
+                      <li style="width: 85px;"><a href="#fakelink">Start A Group</a></li>
+                      <li style="width: 85px;"><%= link_to 'Share Your Badge', page_path('badges') %></li>
                     </ul> <!-- /Sub menu -->
                   </li>
                   <li><%= link_to 'Our Mission', page_path('mission') %></li>
