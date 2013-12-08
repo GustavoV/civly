@@ -2,6 +2,22 @@
 
 <%= form_for @user do |u| %>
 
+<p>What are you?</p>
+<section class='role-pick'>
+  <div>
+    <%= radio_button_tag(:role, "hero") %>
+    <%= label_tag(:role_hero, "Hero") %>
+  </div>
+  <div>
+    <%= radio_button_tag(:role, "patron") %>
+    <%= label_tag(:role_patron, "Patron") %>
+  </div>
+  <div>
+    <%= radio_button_tag(:role, "group") %>
+    <%= label_tag(:role_group, "Group") %>
+  </div>
+</section>
+
 <p>
 	<%= u.text_field :first_name, :placeholder => 'First Name', class: "sign_up_text" %>
 </p>

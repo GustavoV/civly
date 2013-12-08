@@ -146,7 +146,11 @@
                   <li><a href="#fakelink">Non-Profits</a></li>
                 </ul> <!-- /Sub menu -->
             </li>
-            
+
+            <li class="active">
+              <%= link_to 'Reports', reports_path(max_results: 10) %>
+            </li>
+
             <li class="active">
                 <a href="/all_posts">
                   Needs
