@@ -1,14 +1,20 @@
 <%= form_for @user do |u| %>
 
-
-<p>
-  <%= radio_button_tag(:age, "child") %>
-  <%= label_tag(:age_child, "I am younger than 21") %>
-  <%= radio_button_tag(:age, "adult") %>
-  <%= label_tag(:age_adult, "I'm over 21") %>
-  <%= radio_button_tag(:age, "adult") %>
-  <%= label_tag(:age_adult, "I'm over 21") %>
-</p>
+<p>What are you?</p>
+<section class='role-pick'>
+  <div>
+    <%= radio_button_tag(:role, "hero") %>
+    <%= label_tag(:role_hero, "Hero") %>
+  </div>
+  <div>
+    <%= radio_button_tag(:role, "patron") %>
+    <%= label_tag(:role_patron, "Patron") %>
+  </div>
+  <div>
+    <%= radio_button_tag(:role, "group") %>
+    <%= label_tag(:role_group, "Group") %>
+  </div>
+</section>
 
 <p>
 	<%= u.text_field :first_name, :placeholder => 'First Name', class: "sign_up_text" %>
