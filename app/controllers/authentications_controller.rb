@@ -17,10 +17,15 @@ class AuthenticationsController < ApplicationController
         # authenticate user
         if user.authenticate(params[:user][:password])
           session[:user_id] = user.id
-          redirect_to user_path(user)
+          if user[:role] == :hero
+            redirect_to all_posts_path
+          elsif user[:role] == :patron || user[:role] == :group
+            redirect_to user_path
+          else
+            redirect_to all_posts_path
+          end
         else
           flash.now.alert = "Unable to sign you in. Please try again."
-          @user = User.new
           render :new
         end
     end
@@ -36,5 +41,5 @@ class AuthenticationsController < ApplicationController
      notice: "You signed out."
   end
 
-  
+
 end
