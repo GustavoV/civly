@@ -88,6 +88,7 @@ group :development do
   gem "mongoid-paperclip", :require => "mongoid_paperclip"
   gem 'aws-sdk', '~> 1.3.4'
 	gem 'dotenv-rails'
+	gem 'debugger'
 end
 
 group :test do
