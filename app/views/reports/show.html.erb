@@ -1,5 +1,8 @@
 <div class="Report">
   <h1><%= @report['RequestType'] %></h1>
+  <%= render 'google_map', report: @report %>
+  <div class="pull-right">
+  </div>
   <%= image_tag(@report['ImageUrlLg'], alt: "Image of #{@report['RequestType']}") %>
   <p>
     <strong>City:</strong> 
