@@ -37,5 +37,6 @@ Civly::Application.routes.draw do
   get 'all_users(/:loc)' => 'users#show_all'
   get 'change_status' => 'posts#change_status'
 
+	resources :reports, only: [:index, :show]
 
 end
