@@ -1,6 +1,6 @@
 
 class Citysourced
-	@base_uri = 'api.citysourced.com'
+	BASE_URI = 'http://api.citysourced.com'
 
 	def initialize(attributes = {})
 		@api_key = attributes[:api_key]
@@ -16,7 +16,7 @@ class Citysourced
 	end
 
 	def to_hash
-		{
+		hash = {
 			ApiAuthKey: @api_key,
 			ApiRequestType: @api_request_type,
 			ApiRequestVersion: @api_request_version,
@@ -28,14 +28,27 @@ class Citysourced
 			DateRangeEnd: @date_range_end,
 			CurrentStatus: @current_status
 		}
+		case @api_request_type
+		when 'GetReportsByAddress'
+			hash[:address] = @address
+		when 'GetReportsByCityState'
+			hash[:city] = @city
+			hash[:state] = @state
+		else
+			raise NameError, "Cannot find request type: #{@api_request_type}"
+		end
+		hash
 	end
 
 	def to_xml
 		self.to_hash.to_xml(root: 'CsRequest')
 	end
 
-	def get_graffiti_by_address
-		HTTParty.post("http://api.citysourced.com/cs/rest/GetReportsByAddress.ashx?Output=json", body: "#{self.to_xml}")
+	def get_reports
+		parsed_response = HTTParty.post(
+			"#{BASE_URI}/cs/rest/#{@api_request_type}.ashx?Output=json", body: "#{self.to_xml}"
+		).parsed_response
+		parsed_response.first[1]['Reports']['Report']
 	end
 
 end
