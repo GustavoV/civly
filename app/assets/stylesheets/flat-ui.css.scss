@@ -10,7 +10,7 @@ body { padding-top: 60px; }
     background-repeat: no-repeat;
     width: 64px;
     height: 64px;
-    background-color: #14A085;
+    
 }
 
 .profile_link:hover {
@@ -1140,6 +1140,9 @@ fieldset[disabled] .btn-link:focus {
 }
 .navbar .btn-navbar .icon-bar {
   display: none;
+  @media (max-width : 568px) {
+    display: block;
+  }
 }
 .navbar-default {
   background: #eceef0;
@@ -2071,7 +2074,7 @@ fieldset[disabled] .form-control + .input-icon,
 .pager li > span:hover,
 .pager li > a:focus,
 .pager li > span:focus {
-  background-color: #2c3e50;
+  /*background-color: #2c3e50;*/
 }
 .pager li > a:active,
 .pager li > span:active {

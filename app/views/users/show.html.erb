@@ -12,8 +12,14 @@
 	<%= link_to 'Edit Profile', edit_user_path(:id => @user._id), :class => "btn-3d blue" %>
 
 	<%= link_to "Post", new_user_post_path(@user), :class => "btn-3d red" %>
-	<h2 style="color: #14A085; margin-top: -20px;"> Points Earned: <%= @user.user_points_earned %></h2>
-	<h3> Points Posted: <%= @user.user_points_posted %></h3>
+
+	<h2 style="color: #14A085; margin-top: -20px; font-size: 32px;"> Coins Earned: <img src="http://cloud-media.com/wp-content/uploads/2013/12/civly-coin-beta-all-posts-icon.png" /><%= @user.user_points_earned %></h2>
+	<h2 style="color: #E74C3C; margin-top: -20px; font-size: 24px;"> Coins Posted: <img src="http://cloud-media.com/wp-content/uploads/2013/12/civly-coin-beta-all-posts-icon.png" /> -<%= @user.user_points_posted %></h2>
+
+	<h2 style="margin-top: -20px; font-size: 24px;">
+		Balance: 
+		<%= @user.user_points_earned -= @user.user_points_posted %><h2>
+
 
 </div>
 

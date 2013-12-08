@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <th>id</th>
+    <th>Type</th>
+    <th>Last Updated</th>
+    <th>Image</th>
+  </thead>
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report['Id'] %></td>
+        <td><%= link_to(report['RequestType'], report_path(report['Id'])) %></td>
+        <td><%= report['DateUpdated'] %></td>
+        <td><%= image_tag(report['ImageUrlMd'], alt: "Image of #{report['RequestType']}") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

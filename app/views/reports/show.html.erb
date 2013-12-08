@@ -1,0 +1,17 @@
+<div class="Report">
+  <h1><%= @report['RequestType'] %></h1>
+  <%= image_tag(@report['ImageUrlLg'], alt: "Image of #{@report['RequestType']}") %>
+  <p>
+    <strong>City:</strong> 
+    <%= @report['City'] %>
+  </p>
+  <p>
+    <strong>State:</strong> 
+    <%= @report['State'] %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @report['Description'] %>
+  </p>
+
+</div>
