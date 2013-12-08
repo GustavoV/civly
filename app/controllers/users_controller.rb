@@ -15,12 +15,12 @@ class UsersController < ApplicationController
 	end
 
 	def new
-		@user = User.new
 	end
 
 	def create
-		user = User.create(params[:user].permit(:first_name, :last_name, :role, :email, :password, :password_confirmation, :user_points_posted, :user_points_earned, :photo))
+		user = User.create(user_params)
 		if user
+			session[:user_id] = user.id
 			if user[:role] == :hero
 			  redirect_to all_posts_path
 			elsif user[:role] == :patron || user[:role] == :group
@@ -28,6 +28,9 @@ class UsersController < ApplicationController
 			else
 			  redirect_to all_posts_path
 			end
+		else
+			flash.now.alert = "Unable to sign you up. Please try again."
+			render :new
 		end
 	end
 
@@ -46,6 +49,12 @@ class UsersController < ApplicationController
 	end
 
 	def index
+	end
+
+	private
+
+	def user_params
+		 params.require(:user).permit(:first_name, :last_name, :role, :email, :password, :password_confirmation, :user_points_posted, :user_points_earned, :photo))
 	end
 
 

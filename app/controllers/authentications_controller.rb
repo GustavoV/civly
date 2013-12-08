@@ -26,7 +26,6 @@ class AuthenticationsController < ApplicationController
           end
         else
           flash.now.alert = "Unable to sign you in. Please try again."
-          @user = User.new
           render :new
         end
     end
